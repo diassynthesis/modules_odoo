@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>	
+		
+		<!-- Action du menu inscription -->
+		<record model="ir.actions.act_window" id="action_inscription">
+			<field name="name">inscription</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">exercice.inscription</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form,kanban</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">Cliquez ici pour effectuer une inscription.</p>
+			</field>
+		</record>
+		
+		<!-- Action du menu batiment -->
+		<record model="ir.actions.act_window" id="action_batiment">
+			<field name="name">batiment</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">exercice.batiment</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">Cliquez ici pour créer un batiment.</p>
+			</field>
+		</record>
+
+		<!-- Action du menu filiere -->
+		<record model="ir.actions.act_window" id="action_filiere">
+			<field name="name">filiere</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">exercice.filiere</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">Cliquez ici pour créer une filiere.</p>
+			</field>
+		</record>
+		
+
+
+		<!-- Action du menu matiere -->
+		<record model="ir.actions.act_window" id="action_matiere">
+			<field name="name">matiere</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">exercice.matiere</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">Cliquez ici pour créer une matiere.</p>
+			</field>
+		</record>
+
+		<!-- Action du menu classe -->
+		<record model="ir.actions.act_window" id="action_classe">
+			<field name="name">classe</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">exercice.classe</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">Cliquez ici pour créer une classe.</p>
+			</field>
+		</record>
+		
+
+		<!-- Action du menu etudiant -->
+		<record model="ir.actions.act_window" id="action_etudiant">
+			<field name="name">etudiant</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">exercice.etudiant</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form,kanban</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">Cliquez ici pour créer un etudiant.</p>
+			</field>
+		</record>
+	
+
+		<!-- Action du menu etudiant masculin -->
+		<record model="ir.actions.act_window" id="action_etudiant_masculin">
+			<field name="name">etudiants - Masculins</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">exercice.etudiant.masculin</field>
+			<field name="view_type">tree</field>
+			<field name="view_mode">tree</field>
+		</record>
+
+		<!-- Action du menu etudiant feminin -->
+		<record model="ir.actions.act_window" id="action_etudiant_feminin">
+			<field name="name">etudiants - Feminins</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">exercice.etudiant.feminin</field>
+			<field name="view_type">tree</field>
+			<field name="view_mode">tree</field>
+		</record>
+
+		<!-- Action du menu evaluer -->
+		<record model="ir.actions.act_window" id="action_evaluer">
+			<field name="name">Evaluer</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">exercice.evaluer</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		
+
+		<menuitem name="Gestion Etablissement" id="menu_etablissement"  />
+
+		<menuitem name="Paramètres" id="menu_param" parent="menu_etablissement"/>
+
+		<menuitem name="Gestion" id="menu_gestion" parent="menu_etablissement"/>
+
+
+		<menuitem action="action_inscription" parent="menu_gestion" name="Inscription"
+			id="exercice_inscription" />
+
+		<menuitem action="action_etudiant_feminin" parent="menu_gestion" name="Etudiantes"
+			 id="exercice_etudiant_feminin" />
+
+		<menuitem action="action_etudiant_masculin" parent="menu_gestion" name="Etudiant"
+			 id="exercice_etudiant_masculin" />
+
+		<menuitem action="action_etudiant" parent="menu_gestion" name="Edition/Liste etudiants"
+			 id="exercice_etudiant" />
+
+		<menuitem action="action_classe" parent="menu_param" name="Classe"
+			 id="exercice_classe" />
+
+		<menuitem action="action_matiere" parent="menu_param" name="Matiere"
+			 id="exercice_matiere"/>
+
+		<menuitem action="action_filiere" parent="menu_param" name="Filiere"
+			 id="exercice_filiere"/>
+		
+		<menuitem action="action_batiment" parent="menu_param" name="Batiment"
+			 id="exercice_batiment"/>
+
+</data>	
+</openerp>

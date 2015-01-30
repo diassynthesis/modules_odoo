@@ -1,0 +1,1745 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<menuitem name="Médical" id="menu_mcisogem_medical" sequence="2" />
+
+		<menuitem name="Médical" id="menu_mcisogem_medical_sub"
+			parent="menu_mcisogem_medical" />
+
+		<menuitem name="Etablissements sanitaires"
+			id="menu_mcisogem_medical_etablissements_sanitaires" parent="menu_mcisogem_medical_sub" />
+
+		<!-- ===================== type de centre form ============================= -->
+		<record id="view_mcisogem_type_centre_form" model="ir.ui.view">
+			<field name="name">mcisogem.type.centre.form</field>
+			<field name="model">mcisogem.type.centre</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Type de centre">
+					<sheet>
+						<div class="oe_title">
+							<h1>
+								<label string="Type de centre" />
+							</h1>
+						</div>
+						<group>
+							<group>
+								<field name="code_type_centre" />
+							</group>
+							<group>
+								<field name="code_type_centre2" />
+							</group>
+						</group>
+						<group>
+							<group>
+								<field name="name" />
+							</group>
+							<group>
+								<field name="code_type_reserve" />
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- ===================== Liste type de centre ============================= -->
+		<record id="mcisogem_type_centre_tree" model="ir.ui.view">
+			<field name="name">mcisogem.type.centre.tree</field>
+			<field name="model">mcisogem.type.centre</field>
+			<field name="arch" type="xml">
+				<tree string="Type de centre">
+					<field name="code_type_centre" />
+					<field name="code_type_centre2" />
+					<field name="name" />
+					<field name="code_type_reserve" />
+				</tree>
+			</field>
+		</record>
+
+		<!-- ===================== filtre type de centre ============================= -->
+		<record id="view_mcisogem_type_centre_filter" model="ir.ui.view">
+			<field name="name">mcisogem.type.centre.select</field>
+			<field name="model">mcisogem.type.centre</field>
+			<field name="arch" type="xml">
+				<search string="Rechercher un type de centre">
+					<field name="code_type_centre" />
+					<field name="name" />
+				</search>
+			</field>
+		</record>
+
+		<!-- Action du menu type de centre -->
+		<record model="ir.actions.act_window" id="action_mcisogem_type_centre">
+			<field name="name">Type de centre</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">mcisogem.type.centre</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Cliquez ici pour créer type de centre.
+				</p>
+			</field>
+		</record>
+
+		<menuitem name="Type établissement sanitaire" id="menu_mcisogem_type_etablissements_sanitaires"
+			action="action_mcisogem_type_centre" sequence="1"
+			parent="menu_mcisogem_medical_etablissements_sanitaires" />
+
+
+
+		<!-- ===================== plage de centre form ============================= -->
+		<record id="view_mcisogem_plage_centre_form" model="ir.ui.view">
+			<field name="name">mcisogem.plage.centre.form</field>
+			<field name="model">mcisogem.plage.centre</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Plage de centre">
+					<sheet>
+						<div class="oe_title">
+							<h1>
+								<label string="Plage de centre" />
+							</h1>
+						</div>
+						<group>
+							<group>
+								<field name="numero_plage_centre" />
+							</group>
+							<group>
+								<field name="code_type_centre" />
+							</group>
+						</group>
+						<group>
+							<group>
+								<field name="code_plage" />
+							</group>
+							<group></group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- ===================== Liste plage de centre ============================= -->
+		<record id="mcisogem_plage_centre_tree" model="ir.ui.view">
+			<field name="name">mcisogem.plage.centre.tree</field>
+			<field name="model">mcisogem.plage.centre</field>
+			<field name="arch" type="xml">
+				<tree string="Plage de centre">
+					<field name="numero_plage_centre" />
+					<field name="code_type_centre" />
+					<field name="code_centre" />
+					<field name="code_plage" />
+					<field name="dernier_numero" />
+				</tree>
+			</field>
+		</record>
+
+		<!-- ===================== filtre plage de centre ============================= -->
+		<record id="view_mcisogem_plage_centre_filter" model="ir.ui.view">
+			<field name="name">mcisogem.plage.centre.select</field>
+			<field name="model">mcisogem.plage.centre</field>
+			<field name="arch" type="xml">
+				<search string="Rechercher une plage de centre">
+					<field name="numero_plage_centre" />
+					<field name="code_type_centre" />
+					<field name="code_plage" />
+				</search>
+			</field>
+		</record>
+
+		<!-- Action du menu plage de centre -->
+		<record model="ir.actions.act_window" id="action_mcisogem_plage_centre">
+			<field name="name">Plage de centre</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">mcisogem.plage.centre</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Cliquez ici pour créer une plage de centre.
+				</p>
+			</field>
+		</record>
+
+		<menuitem name="Plage de centre" id="menu_mcisogem_plage_centre"
+			action="action_mcisogem_plage_centre" sequence="1"
+			parent="menu_mcisogem_medical_etablissements_sanitaires" />
+
+
+		<!-- ===================== centre form ============================= -->
+		<record id="view_mcisogem_centre_form" model="ir.ui.view">
+			<field name="name">mcisogem.centre.form</field>
+			<field name="model">mcisogem.centre</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Centre" create="true" edit="true" delete="false">
+					<sheet>
+						<div class="oe_title">
+							<h1>
+								<label string="Centre" />
+							</h1>
+						</div>
+						<group>
+							<field name="code_centre" readonly="1" />
+							<field name="code_type_centre" onchange="onchange_name_centre(name,context)" />
+							<field name="name" />
+							<field name="mot_passe" />
+							<field name="responsable" />
+							<field name="correspondant" />
+							<field name="observation_centre" />
+							<field name="code_externe" />
+						</group>
+						<group>
+							<group>
+								<field name="capital" />
+							</group>
+							<group>
+								<field name="bl_cme" />
+							</group>
+						</group>
+						<group>
+							<group>
+								<field name="privilege" widget="selection" />
+							</group>
+							<group>
+								<field name="activer" />
+							</group>
+						</group>
+						<notebook>
+							<page string="Localisation et Contacts">
+								<group>
+									<group>
+										<field name="code_territoire" />
+									</group>
+									<group>
+										<field name="code_ville"
+											on_change="onchange_code_ville_centre(code_ville,context)" />
+									</group>
+								</group>
+								<group>
+									<group>
+										<field name="code_commune" domain="[('code_ville','=',code_ville)]" />
+									</group>
+									<group>
+									</group>
+								</group>
+								<group>
+									<group>
+										<field name="bp_centre" />
+									</group>
+									<group>
+										<field name="code_bp_centre" />
+									</group>
+								</group>
+								<group>
+									<field name="adresse_centre" />
+								</group>
+								<group>
+									<group>
+										<field name="tel_centre1" />
+									</group>
+									<group>
+										<field name="tel_centre2" />
+									</group>
+								</group>
+								<group>
+									<group>
+										<field name="email_centre" widget="email" />
+									</group>
+									<group>
+										<field name="fax_centre" />
+									</group>
+								</group>
+							</page>
+
+							<page string="Infos bancaires">
+								<group>
+									<group>
+										<field name="numero_banque_centre" />
+									</group>
+									<group>
+										<field name="numero_guichet_centre" />
+									</group>
+								</group>
+								<group>
+									<group>
+										<field name="numero_compte_centre" />
+									</group>
+									<group>
+									</group>
+								</group>
+								<separator string="Compte interne" colspan="4" />
+								<group>
+									<group>
+										<field name="cpta_centre" />
+									</group>
+									<group>
+										<field name="compta_prestat_tiers" />
+									</group>
+								</group>
+								<group>
+									<group>
+										<field name="cle_rib_centre" />
+									</group>
+									<group>
+										<field name="mode_paiement_centre" widget="selection" />
+									</group>
+								</group>
+								<group>
+									<group>
+										<field name="regl_centre_prestat" widget="radio"
+											on_change="onchange_regl_centre_prestat(name, context)" />
+									</group>
+									<group>
+										<field name="autre_ordre_centre"
+											attrs="{'invisible':[('regl_centre_prestat','!=','A')]}" />
+									</group>
+								</group>
+							</page>
+						</notebook>
+
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- ===================== centre ============================= -->
+		<record id="mcisogem_centre_tree" model="ir.ui.view">
+			<field name="name">mcisogem.centre.tree</field>
+			<field name="model">mcisogem.centre</field>
+			<field name="arch" type="xml">
+				<tree string="Centre">
+					<field name="code_centre" />
+					<field name="code_type_centre" />
+					<field name="name" />
+					<field name="code_ville" />
+					<field name="code_commune" />
+					<field name="tel_centre1" />
+					<field name="tel_centre2" />
+				</tree>
+			</field>
+		</record>
+
+		<!-- ===================== centre ============================= -->
+		<record id="view_mcisogem_centre_filter" model="ir.ui.view">
+			<field name="name">mcisogem.centre.select</field>
+			<field name="model">mcisogem.centre</field>
+			<field name="arch" type="xml">
+				<search string="Rechercher un centre">
+					<field name="code_centre" />
+					<field name="code_type_centre" />
+					<field name="name" />
+					<field name="code_ville" />
+					<field name="code_commune" />
+					<field name="tel_centre1" />
+					<field name="tel_centre2" />
+				</search>
+			</field>
+		</record>
+
+		<!-- Action du menu centre -->
+		<record model="ir.actions.act_window" id="action_mcisogem_centre">
+			<field name="name">Centre</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">mcisogem.centre</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Cliquez ici pour créer un centre
+				</p>
+			</field>
+		</record>
+
+		<menuitem name="Centre" id="menu_mcisogem_centre" action="action_mcisogem_centre"
+			sequence="1" parent="menu_mcisogem_medical_etablissements_sanitaires" />
+
+
+
+		<menuitem name="Actes" id="menu_mcisogem_medical_acte"
+			parent="menu_mcisogem_medical_sub" />
+
+		<!-- ===================== famille acte form ============================= -->
+		<record id="view_mcisogem_famille_acte_form" model="ir.ui.view">
+			<field name="name">mcisogem.fam.prest.form</field>
+			<field name="model">mcisogem.fam.prest</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Famille d'acte">
+					<sheet>
+						<div class="oe_title">
+							<h1>
+								<label string="Famille d'actes" />
+							</h1>
+						</div>
+						<group>
+							<group>
+								<field name="libelle_court_famille" />
+							</group>
+							<group>
+								<field name="name" />
+							</group>
+						</group>
+						<group>
+							<field name="observation_famille" />
+						</group>
+
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- ===================== Liste type de centre ============================= -->
+		<record id="mcisogem_famille_acte_tree" model="ir.ui.view">
+			<field name="name">mcisogem.fam.prest.tree</field>
+			<field name="model">mcisogem.fam.prest</field>
+			<field name="arch" type="xml">
+				<tree string="Famille d'actes">
+					<field name="libelle_court_famille" />
+					<field name="name" />
+				</tree>
+			</field>
+		</record>
+
+		<!-- ===================== filtre type de centre ============================= -->
+		<record id="view_mcisogem_famille_acte_filter" model="ir.ui.view">
+			<field name="name">mcisogem.fam.prest.select</field>
+			<field name="model">mcisogem.fam.prest</field>
+			<field name="arch" type="xml">
+				<search string="Rechercher une famille d'actes">
+					<field name="libelle_court_famille" />
+					<field name="name" />
+				</search>
+			</field>
+		</record>
+
+		<!-- Action du menu type de centre -->
+		<record model="ir.actions.act_window" id="action_mcisogem_famille_acte">
+			<field name="name">Famille d'actes</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">mcisogem.fam.prest</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Cliquez ici pour créer une famille d'actes
+				</p>
+			</field>
+		</record>
+
+		<menuitem name="Famille d'actes" id="menu_mcisogem_type_famille_acte"
+			action="action_mcisogem_famille_acte" sequence="1"
+			parent="menu_mcisogem_medical_acte" />
+
+
+		<!-- ===================== famille acte form ============================= -->
+		<record id="view_mcisogem_acte_form" model="ir.ui.view">
+			<field name="name">mcisogem.nomen.prest.form</field>
+			<field name="model">mcisogem.nomen.prest</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Actes">
+					<sheet>
+						<div class="oe_title">
+							<h1>
+								<label string="Actes" />
+							</h1>
+						</div>
+						<group>
+							<group>
+								<field name="code_fam_prest" />
+							</group>
+							<group>
+								<field name="libelle_court_acte" />
+							</group>
+						</group>
+						<group>
+							<group>
+								<field name="name" />
+							</group>
+							<group>
+								<field name="bl_nomen_envig" />
+							</group>
+						</group>
+						<group>
+							<field name="observation_nomen" />
+						</group>
+
+
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- ===================== Liste type de centre ============================= -->
+		<record id="mcisogem_acte_tree" model="ir.ui.view">
+			<field name="name">mcisogem.nomen.prest.tree</field>
+			<field name="model">mcisogem.nomen.prest</field>
+			<field name="arch" type="xml">
+				<tree string="Actes">
+					<field name="code_fam_prest" />
+					<field name="libelle_court_acte" />
+					<field name="name" />
+					<field name="bl_nomen_envig" />
+				</tree>
+			</field>
+		</record>
+
+		<!-- ===================== filtre type de centre ============================= -->
+		<record id="view_mcisogem_acte_filter" model="ir.ui.view">
+			<field name="name">mcisogem.nomen.prest.select</field>
+			<field name="model">mcisogem.nomen.prest</field>
+			<field name="arch" type="xml">
+				<search string="Rechercher un acte">
+					<field name="code_fam_prest" />
+					<field name="libelle_court_acte" />
+					<field name="name" />
+					<field name="bl_nomen_envig" />
+				</search>
+			</field>
+		</record>
+
+		<!-- Action du menu type de centre -->
+		<record model="ir.actions.act_window" id="action_mcisogem_acte">
+			<field name="name">Actes</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">mcisogem.nomen.prest</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Cliquez ici pour créer un acte
+				</p>
+			</field>
+		</record>
+
+		<menuitem name="Actes" id="menu_mcisogem_acte" action="action_mcisogem_acte"
+			sequence="1" parent="menu_mcisogem_medical_acte" />
+
+
+		<!-- ===================== famille acte form ============================= -->
+		<record id="view_mcisogem_acte_entente_prealable_form" model="ir.ui.view">
+			<field name="name">mcisogem.acte.entente.prealable.form</field>
+			<field name="model">mcisogem.acte.entente.prealable</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Actes soumis à entente préalable" edit="true">
+					<sheet>
+						<div class="oe_title">
+							<h1>
+								<label string="Actes soumis à entente préalable" />
+							</h1>
+						</div>
+						<group>
+							<field name="code_famille"
+								on_change="onchange_code_famille_entente(code_famille,context)" />
+							<field name="acte_ids" widget="many2many_checkboxes"
+								domain="[('code_fam_prest','=',code_famille)]" />
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+
+		<!-- ===================== Liste type de centre ============================= -->
+		<record id="mcisogem_acte_entente_prealable_tree" model="ir.ui.view">
+			<field name="name">mcisogem.acte.entente.prealable.tree</field>
+			<field name="model">mcisogem.acte.entente.prealable</field>
+			<field name="arch" type="xml">
+				<tree string="Actes soumis à entente préalable">
+					<field name="code_famille" />
+					<field name="acte_ids" />
+				</tree>
+			</field>
+		</record>
+
+		<!-- ===================== filtre type de centre ============================= -->
+		<record id="view_mcisogem_acte_entente_prealable_filter" model="ir.ui.view">
+			<field name="name">mcisogem.acte.entente.prealable.select</field>
+			<field name="model">mcisogem.acte.entente.prealable</field>
+			<field name="arch" type="xml">
+				<search string="Rechercher un acte soumis à entente préalable">
+					<field name="code_famille" />
+					<field name="acte_ids" />
+				</search>
+			</field>
+		</record>
+
+		<!-- Action du menu type de centre -->
+		<record model="ir.actions.act_window" id="action_mcisogem_acte_entente_prealable">
+			<field name="name">Actes soumis à entente préalable</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">mcisogem.acte.entente.prealable</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Cliquez ici pour créer un acte soumis à entente préalable
+				</p>
+			</field>
+		</record>
+
+		<menuitem name="Actes soumis à entente préalable" id="menu_mcisogem_acte_entente_prealable"
+			action="action_mcisogem_acte_entente_prealable" sequence="1"
+			parent="menu_mcisogem_medical_acte" />
+
+
+
+		<!-- ===================== plage de centre form ============================= -->
+		<record id="view_mcisogem_convention_form" model="ir.ui.view">
+			<field name="name">mcisogem.convention.form</field>
+			<field name="model">mcisogem.convention</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Convention">
+					<sheet>
+						<div class="oe_title">
+							<h1>
+								<label string="Convention" />
+							</h1>
+						</div>
+						<group>
+							<group>
+								<field name="numero_convention" />
+							</group>
+							<group>
+								<field name="name" />
+							</group>
+						</group>
+						<group>
+							<group>
+								<field name="date_debut_convention" />
+							</group>
+							<group>
+								<field name="date_fin_convention" />
+							</group>
+						</group>
+						<group>
+							<field name="description_convention" />
+						</group>
+						<group>
+							<field name="validite_convention" />
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- ===================== Liste plage de centre ============================= -->
+		<record id="mcisogem_convention_tree" model="ir.ui.view">
+			<field name="name">mcisogem.convention.tree</field>
+			<field name="model">mcisogem.convention</field>
+			<field name="arch" type="xml">
+				<tree string="Convention">
+					<field name="numero_convention" />
+					<field name="name" />
+					<field name="date_debut_convention" />
+					<field name="date_fin_convention" />
+					<field name="validite_convention" />
+				</tree>
+			</field>
+		</record>
+
+		<!-- ===================== filtre plage de centre ============================= -->
+		<record id="view_mcisogem_convention_filter" model="ir.ui.view">
+			<field name="name">mcisogem.convention.select</field>
+			<field name="model">mcisogem.convention</field>
+			<field name="arch" type="xml">
+				<search string="Rechercher une plage de centre">
+					<field name="numero_convention" />
+					<field name="name" />
+					<field name="date_debut_convention" />
+					<field name="date_fin_convention" />
+					<field name="validite_convention" />
+				</search>
+			</field>
+		</record>
+
+		<!-- Action du menu plage de centre -->
+		<record model="ir.actions.act_window" id="action_mcisogem_convention">
+			<field name="name">Convention</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">mcisogem.convention</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Cliquez ici pour créer une convention
+				</p>
+			</field>
+		</record>
+
+		<menuitem name="Convention" id="menu_mcisogem_convention"
+			action="action_mcisogem_convention" sequence="1"
+			parent="menu_mcisogem_medical_etablissements_sanitaires" />
+
+
+		<menuitem name="Prestataires" id="menu_mcisogem_medical_prestataire"
+			parent="menu_mcisogem_medical_sub" />
+
+		<!-- ===================== famille acte form ============================= -->
+		<record id="view_mcisogem_specialite_form" model="ir.ui.view">
+			<field name="name">mcisogem.spec.med.form</field>
+			<field name="model">mcisogem.spec.med</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Spécialités">
+					<sheet>
+						<div class="oe_title">
+							<h1>
+								<label string="Spécialités" />
+							</h1>
+						</div>
+						<group>
+							<group>
+								<field name="libelle_court_spec" />
+							</group>
+							<group>
+								<field name="name" />
+							</group>
+						</group>
+						<group>
+							<group>
+								<field name="code_specialite_reserve" />
+							</group>
+							<group>
+								<field name="bl_prescr_autoris" />
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- ===================== Liste type de centre ============================= -->
+		<record id="mcisogem_specialite_tree" model="ir.ui.view">
+			<field name="name">mcisogem.spec.med.tree</field>
+			<field name="model">mcisogem.spec.med</field>
+			<field name="arch" type="xml">
+				<tree string="Spécialité">
+					<field name="libelle_court_spec" />
+					<field name="name" />
+					<field name="code_specialite_reserve" />
+					<field name="bl_prescr_autoris" />
+				</tree>
+			</field>
+		</record>
+
+		<!-- ===================== filtre type de centre ============================= -->
+		<record id="view_mcisogem_specialite_filter" model="ir.ui.view">
+			<field name="name">mcisogem.spec.med.select</field>
+			<field name="model">mcisogem.spec.med</field>
+			<field name="arch" type="xml">
+				<search string="Rechercher une spécialité">
+					<field name="libelle_court_spec" />
+					<field name="name" />
+					<field name="code_specialite_reserve" />
+					<field name="bl_prescr_autoris" />
+				</search>
+			</field>
+		</record>
+
+		<!-- Action du menu type de centre -->
+		<record model="ir.actions.act_window" id="action_mcisogem_specialite">
+			<field name="name">Spécialité</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">mcisogem.spec.med</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Cliquez ici pour créer une spécialité
+				</p>
+			</field>
+		</record>
+
+		<menuitem name="Spécialité" id="menu_mcisogem_specialite"
+			action="action_mcisogem_specialite" sequence="1"
+			parent="menu_mcisogem_medical_prestataire" />
+
+
+
+
+		<!-- ===================== famille acte form ============================= -->
+		<record id="view_mcisogem_prestataire_form" model="ir.ui.view">
+			<field name="name">Prestataire</field>
+			<field name="model">mcisogem.prestat</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Prestataire">
+					<sheet>
+						<div class="oe_title">
+							<h1>
+								<label string="Prestataire" />
+							</h1>
+						</div>
+						<group>
+							<field name="libelle_court_prestat" readonly="1" />
+						</group>
+						<group>
+							<field name="code_specialite" domain="[('bl_prescr_autoris','=',0)]" />
+						</group>
+						<group>
+							<field name="prenoms_prestat" string="Nom prestataire" />
+						</group>
+						<group>
+							<field name="observation_prestat" />
+						</group>
+						<group>
+							<group>
+								<field name="privilege" />
+							</group>
+							<group>
+								<field name="activer" />
+							</group>
+						</group>
+						<notebook>
+							<page string="Localisation et Contacts">
+								<group>
+									<group>
+										<field name="code_territoire" />
+									</group>
+									<group>
+										<field name="code_ville"
+											on_change="onchange_code_ville_prestat(code_ville,context)" />
+									</group>
+								</group>
+								<group>
+									<group>
+										<field name="code_commune" domain="[('code_ville','=',code_ville)]" />
+									</group>
+									<group>
+									</group>
+								</group>
+								<group>
+									<group>
+										<field name="bp_prestat" />
+									</group>
+									<group>
+										<field name="code_bp_prestat" />
+									</group>
+								</group>
+								<group>
+									<field name="adresse_prestat" />
+								</group>
+								<group>
+									<group>
+										<field name="tel_prestat" />
+									</group>
+									<group>
+										<field name="tel1_prestat" />
+									</group>
+								</group>
+								<group>
+									<group>
+										<field name="email_prestat" />
+									</group>
+									<group>
+										<field name="fax_prestat" />
+									</group>
+								</group>
+							</page>
+							<page string="Infos bancaires">
+								<group>
+									<group>
+										<field name="numero_banque_prestat" />
+									</group>
+									<group>
+										<field name="numero_guichet_prestat" />
+									</group>
+								</group>
+								<group>
+									<group>
+										<field name="numero_compte_prestat" />
+									</group>
+									<group>
+									</group>
+								</group>
+								<separator string="Compte interne" colspan="4" />
+								<group>
+									<group>
+										<field name="cpta_prestat" />
+									</group>
+									<group>
+										<field name="compta_prestat_tiers" />
+									</group>
+								</group>
+								<group>
+									<group>
+										<field name="cle_rib_prestat" />
+									</group>
+									<group>
+										<field name="mode_paiement_prestat" widget="selection" />
+									</group>
+								</group>
+								<group>
+									<group>
+										<field name="regl_centre_prestat" widget="radio"
+											on_change="onchange_regl_centre_prestat(prenoms_prestat, context)" />
+									</group>
+									<group>
+										<field name="autre_ordre_prestat"
+											attrs="{'invisible':[('regl_centre_prestat','!=','A')]}" />
+									</group>
+								</group>
+							</page>
+						</notebook>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- ===================== Liste type de centre ============================= -->
+		<record id="mcisogem_prestataire_tree" model="ir.ui.view">
+			<field name="name">mcisogem.prestat.tree</field>
+			<field name="model">mcisogem.prestat</field>
+			<field name="arch" type="xml">
+				<tree string="Prestataire">
+					<field name="code_specialite" />
+					<field name="libelle_court_prestat" />
+					<field name="nom_prestat" />
+					<field name="prenoms_prestat" />
+				</tree>
+			</field>
+		</record>
+
+		<!-- ===================== filtre type de centre ============================= -->
+		<record id="view_mcisogem_prestataire_filter" model="ir.ui.view">
+			<field name="name">mcisogem.prestat.select</field>
+			<field name="model">mcisogem.prestat</field>
+			<field name="arch" type="xml">
+				<search string="Rechercher un prestataire">
+					<field name="code_specialite" />
+					<field name="libelle_court_prestat" />
+					<field name="nom_prestat" />
+					<field name="prenoms_prestat" />
+				</search>
+			</field>
+		</record>
+
+		<!-- Action du menu type de centre -->
+		<record model="ir.actions.act_window" id="action_mcisogem_prestataire">
+			<field name="name">Prestataire</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">mcisogem.prestat</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Cliquez ici pour créer un prestataire
+				</p>
+			</field>
+		</record>
+
+		<menuitem name="Prestataire" id="menu_mcisogem_prestataire"
+			action="action_mcisogem_prestataire" sequence="1"
+			parent="menu_mcisogem_medical_prestataire" />
+
+
+
+		<!-- ===================== famille acte form ============================= -->
+		<record id="view_mcisogem_praticien_form" model="ir.ui.view">
+			<field name="name">Praticien</field>
+			<field name="model">mcisogem.praticien</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Praticien">
+					<sheet>
+						<div class="oe_title">
+							<h1>
+								<label string="Praticien" />
+							</h1>
+						</div>
+						<group>
+							<field name="libelle_court_prestat" readonly="1" />
+						</group>
+						<group>
+							<field name="code_specialite" domain="[('bl_prescr_autoris','=',1)]" />
+						</group>
+						<group>
+							<field name="nom_prestat" />
+						</group>
+						<group>
+							<field name="prenoms_prestat" />
+						</group>
+						<group>
+							<field name="numero_ordre_prestat" />
+						</group>
+						<group>
+							<field name="observation_prestat" />
+						</group>
+						<notebook>
+							<page string="Localisation et Contacts">
+								<group>
+									<group>
+										<field name="code_territoire" />
+									</group>
+									<group>
+										<field name="code_ville"
+											on_change="onchange_code_ville_praticien(code_ville,context)" />
+									</group>
+								</group>
+								<group>
+									<group>
+										<field name="bp_prestat" />
+									</group>
+									<group>
+										<field name="code_bp_prestat" />
+									</group>
+								</group>
+								<group>
+									<field name="adresse_prestat" />
+								</group>
+								<group>
+									<group>
+										<field name="tel_prestat" />
+									</group>
+									<group>
+										<field name="tel1_prestat" />
+									</group>
+								</group>
+								<group>
+									<group>
+										<field name="email_prestat" />
+									</group>
+									<group>
+										<field name="fax_prestat" />
+									</group>
+								</group>
+							</page>
+							<page string="Infos bancaires">
+								<group>
+									<group>
+										<field name="numero_banque_prestat" />
+									</group>
+									<group>
+										<field name="numero_guichet_prestat" />
+									</group>
+								</group>
+								<group>
+									<group>
+										<field name="numero_compte_prestat" />
+									</group>
+									<group>
+									</group>
+								</group>
+								<separator string="Compte interne" colspan="4" />
+								<group>
+									<group>
+										<field name="cpta_prestat" />
+									</group>
+									<group>
+										<field name="compta_prestat_tiers" />
+									</group>
+								</group>
+								<group>
+									<group>
+										<field name="cle_rib_prestat" />
+									</group>
+									<group>
+										<field name="mode_paiement_prestat" widget="selection" />
+									</group>
+								</group>
+							</page>
+						</notebook>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- ===================== Liste type de centre ============================= -->
+		<record id="mcisogem_praticien_tree" model="ir.ui.view">
+			<field name="name">mcisogem.praticien.tree</field>
+			<field name="model">mcisogem.praticien</field>
+			<field name="arch" type="xml">
+				<tree string="Praticien">
+					<field name="code_specialite" />
+					<field name="libelle_court_prestat" />
+					<field name="nom_prestat" />
+					<field name="prenoms_prestat" />
+					<field name="numero_ordre_prestat" />
+				</tree>
+			</field>
+		</record>
+
+		<!-- ===================== filtre type de centre ============================= -->
+		<record id="view_mcisogem_praticien_filter" model="ir.ui.view">
+			<field name="name">mcisogem.praticien.select</field>
+			<field name="model">mcisogem.praticien</field>
+			<field name="arch" type="xml">
+				<search string="Rechercher un praticien">
+					<field name="code_specialite" />
+					<field name="libelle_court_prestat" />
+					<field name="nom_prestat" />
+					<field name="prenoms_prestat" />
+					<field name="numero_ordre_prestat" />
+				</search>
+			</field>
+		</record>
+
+		<!-- Action du menu type de centre -->
+		<record model="ir.actions.act_window" id="action_mcisogem_praticien">
+			<field name="name">Praticien</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">mcisogem.praticien</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Cliquez ici pour créer un praticien
+				</p>
+			</field>
+		</record>
+
+		<menuitem name="Praticien" id="menu_mcisogem_praticien"
+			action="action_mcisogem_praticien" sequence="1"
+			parent="menu_mcisogem_medical_prestataire" />
+
+
+		<menuitem name="Affections" id="menu_mcisogem_medical_affection"
+			parent="menu_mcisogem_medical_sub" />
+
+		<!-- ===================== famille acte form ============================= -->
+		<record id="view_mcisogem_type_affection_form" model="ir.ui.view">
+			<field name="name">mcisogem.type.affection.form</field>
+			<field name="model">mcisogem.type.aff</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Type affection">
+					<sheet>
+						<div class="oe_title">
+							<h1>
+								<label string="Type affection" />
+							</h1>
+						</div>
+						<group>
+							<group>
+								<field name="code_type_affection" />
+							</group>
+							<group>
+								<field name="libelle_court_affection" />
+							</group>
+						</group>
+						<group>
+							<group>
+								<field name="name" />
+							</group>
+							<group>
+							</group>
+						</group>
+
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- ===================== Liste type de centre ============================= -->
+		<record id="mcisogem_type_affection_tree" model="ir.ui.view">
+			<field name="name">mcisogem.type.affection.tree</field>
+			<field name="model">mcisogem.type.aff</field>
+			<field name="arch" type="xml">
+				<tree string="Type affection">
+					<field name="code_type_affection" />
+					<field name="libelle_court_affection" />
+					<field name="name" />
+				</tree>
+			</field>
+		</record>
+
+		<!-- ===================== filtre type de centre ============================= -->
+		<record id="view_mcisogem_type_affection_filter" model="ir.ui.view">
+			<field name="name">mcisogem.type.affection.select</field>
+			<field name="model">mcisogem.type.aff</field>
+			<field name="arch" type="xml">
+				<search string="Rechercher un type d'affection">
+					<field name="code_type_affection" />
+					<field name="libelle_court_affection" />
+					<field name="name" />
+				</search>
+			</field>
+		</record>
+
+		<!-- Action du menu type de centre -->
+		<record model="ir.actions.act_window" id="action_mcisogem_type_affection">
+			<field name="name">Type affection</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">mcisogem.type.aff</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Cliquez ici pour créer une Type affection
+				</p>
+			</field>
+		</record>
+
+		<menuitem name="Type affection" id="menu_mcisogem_type_affection"
+			action="action_mcisogem_type_affection" sequence="1"
+			parent="menu_mcisogem_medical_affection" />
+
+
+		<!-- ===================== famille affection form ============================= -->
+		<record id="view_mcisogem_affection_form" model="ir.ui.view">
+			<field name="name">mcisogem.affec.form</field>
+			<field name="model">mcisogem.affec</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Affection">
+					<sheet>
+						<div class="oe_title">
+							<h1>
+								<label string="Affection" />
+							</h1>
+						</div>
+						<group>
+							<group>
+								<field name="type_affection" />
+							</group>
+							<group>
+								<field name="code_affection" />
+							</group>
+						</group>
+						<group>
+							<group>
+								<field name="libelle_court_affection" />
+							</group>
+							<group>
+								<field name="name" />
+							</group>
+						</group>
+						<group>
+							<field name="observation_affection" />
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- ===================== Liste type de centre ============================= -->
+		<record id="mcisogem_affection_tree" model="ir.ui.view">
+			<field name="name">mcisogem.affec.tree</field>
+			<field name="model">mcisogem.affec</field>
+			<field name="arch" type="xml">
+				<tree string="Affection">
+					<field name="type_affection" />
+					<field name="libelle_court_affection" />
+					<field name="name" />
+				</tree>
+			</field>
+		</record>
+
+		<!-- ===================== filtre type de centre ============================= -->
+		<record id="view_mcisogem_affection_filter" model="ir.ui.view">
+			<field name="name">mcisogem.affec.select</field>
+			<field name="model">mcisogem.affec</field>
+			<field name="arch" type="xml">
+				<search string="Rechercher un affection">
+					<field name="type_affection" />
+					<field name="libelle_court_affection" />
+					<field name="name" />
+				</search>
+			</field>
+		</record>
+
+		<!-- Action du menu type de centre -->
+		<record model="ir.actions.act_window" id="action_mcisogem_affection">
+			<field name="name">Affections</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">mcisogem.affec</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Cliquez ici pour créer un affection
+				</p>
+			</field>
+		</record>
+
+		<menuitem name="Affections" id="menu_mcisogem_affection"
+			action="action_mcisogem_affection" sequence="1"
+			parent="menu_mcisogem_medical_affection" />
+
+
+
+		<menuitem name="Actes dentaires" id="menu_mcisogem_medical_actes_dentaires"
+			parent="menu_mcisogem_medical_sub" />
+
+		<!-- ===================== famille acte form ============================= -->
+		<record id="view_mcisogem_liste_dent_form" model="ir.ui.view">
+			<field name="name">mcisogem.liste.dents.form</field>
+			<field name="model">mcisogem.liste.dents</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Liste dent">
+					<sheet>
+						<div class="oe_title">
+							<h1>
+								<label string="Liste dent" />
+							</h1>
+						</div>
+						<group>
+							<group>
+								<field name="numero_dent" />
+							</group>
+							<group>
+								<field name="name" />
+							</group>
+						</group>
+						<group>
+							<field name="type_dent" widget="radio" />
+						</group>
+
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- ===================== Liste type de centre ============================= -->
+		<record id="mcisogem_liste_dent_tree" model="ir.ui.view">
+			<field name="name">mcisogem.liste.dents.tree</field>
+			<field name="model">mcisogem.liste.dents</field>
+			<field name="arch" type="xml">
+				<tree string="Liste de dents">
+					<field name="numero_dent" />
+					<field name="name" />
+					<field name="type_dent" />
+				</tree>
+			</field>
+		</record>
+
+		<!-- ===================== filtre type de centre ============================= -->
+		<record id="view_mcisogem_liste_dent_filter" model="ir.ui.view">
+			<field name="name">mcisogem.liste.dents.select</field>
+			<field name="model">mcisogem.liste.dents</field>
+			<field name="arch" type="xml">
+				<search string="Rechercher une dent">
+					<field name="numero_dent" />
+					<field name="name" />
+					<field name="type_dent" />
+				</search>
+			</field>
+		</record>
+
+		<!-- Action du menu type de centre -->
+		<record model="ir.actions.act_window" id="action_mcisogem_liste_dent">
+			<field name="name">Liste de dents</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">mcisogem.liste.dents</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Cliquez ici pour créer une liste de dent
+				</p>
+			</field>
+		</record>
+
+		<menuitem name="Liste dent" id="menu_mcisogem_liste_dent"
+			action="action_mcisogem_liste_dent" sequence="1"
+			parent="menu_mcisogem_medical_actes_dentaires" />
+
+		<!-- ===================== famille acte form ============================= -->
+		<record id="view_mcisogem_acte_absence_dents_form" model="ir.ui.view">
+			<field name="name">mcisogem.acte.absence.dents.form</field>
+			<field name="model">mcisogem.acte.absence.dents</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Acte d'extraction de dents'">
+					<sheet>
+						<div class="oe_title">
+							<h1>
+								<label string="Acte d'extraction de dents" />
+							</h1>
+						</div>
+						<group>
+							<group>
+								<field name="libelle_court_acte" />
+							</group>
+							<group>
+								<field name="name" />
+							</group>
+						</group>
+						<group>
+							<field name="code_ext_dent" />
+						</group>
+
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- ===================== Liste type de centre ============================= -->
+		<record id="mcisogem_acte_absence_dents_tree" model="ir.ui.view">
+			<field name="name">mcisogem.acte.absence.dents.tree</field>
+			<field name="model">mcisogem.acte.absence.dents</field>
+			<field name="arch" type="xml">
+				<tree string="Acte d'extraction de dents">
+					<field name="libelle_court_acte" />
+					<field name="name" />
+					<field name="code_ext_dent" />
+				</tree>
+			</field>
+		</record>
+
+		<!-- ===================== filtre type de centre ============================= -->
+		<record id="view_mcisogem_acte_absence_dents_filter" model="ir.ui.view">
+			<field name="name">mcisogem.acte.absence.dents.select</field>
+			<field name="model">mcisogem.acte.absence.dents</field>
+			<field name="arch" type="xml">
+				<search string="Acte d'extraction de dents">
+					<field name="libelle_court_acte" />
+					<field name="name" />
+					<field name="code_ext_dent" />
+				</search>
+			</field>
+		</record>
+
+		<!-- Action du menu type de centre -->
+		<record model="ir.actions.act_window" id="action_mcisogem_acte_absence_dents">
+			<field name="name">Acte d'extraction de dents</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">mcisogem.acte.absence.dents</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Cliquez ici pour créer un acte d'extraction de dents
+				</p>
+			</field>
+		</record>
+
+		<menuitem name="Acte d'extraction de dents" id="menu_mcisogem_acte_absence_dents"
+			action="action_mcisogem_acte_absence_dents" sequence="1"
+			parent="menu_mcisogem_medical_actes_dentaires" />
+
+
+
+		<record id="view_mcisogem_sous_acte_form" model="ir.ui.view">
+			<field name="name">mcisogem.sous.actes.form</field>
+			<field name="model">mcisogem.sous.actes</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Sous Actes">
+					<sheet>
+						<div class="oe_title">
+							<h1>
+								<label string="Sous Actes" />
+							</h1>
+						</div>
+						<group>
+							<group>
+								<field name="code_famille_acte" />
+							</group>
+							<group>
+								<field name="code_acte" domain="[('code_fam_prest','=',code_famille_acte)]" />
+							</group>
+						</group>
+						<group>
+							<group>
+								<field name="libelle_court_sous_acte" />
+							</group>
+							<group>
+								<field name="name" />
+							</group>
+						</group>
+						<group>
+							<group>
+								<field name="bl_nomen_envig" />
+							</group>
+							<group>
+								<field name="bl_envig_carmed" />
+							</group>
+						</group>
+						<group>
+							<group>
+								<field name="l_cle_nomen" />
+							</group>
+							<group>
+								<field name="qte_cg" />
+							</group>
+						</group>
+						<group>
+							<field name="observation_nomen" />
+						</group>
+
+
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- ===================== Liste type de centre ============================= -->
+		<record id="mcisogem_sous_acte_tree" model="ir.ui.view">
+			<field name="name">mcisogem.sous.actes.tree</field>
+			<field name="model">mcisogem.sous.actes</field>
+			<field name="arch" type="xml">
+				<tree string="Sous Actes">
+					<field name="code_famille_acte" />
+					<field name="code_acte" />
+					<field name="libelle_court_sous_acte" />
+					<field name="name" />
+					<field name="bl_nomen_envig" />
+					<field name="qte_cg" />
+				</tree>
+			</field>
+		</record>
+
+		<!-- ===================== filtre type de centre ============================= -->
+		<record id="view_mcisogem_sous_acte_filter" model="ir.ui.view">
+			<field name="name">mcisogem.sous.actes.select</field>
+			<field name="model">mcisogem.sous.actes</field>
+			<field name="arch" type="xml">
+				<search string="Rechercher un sous acte">
+					<field name="code_famille_acte" />
+					<field name="code_acte" />
+					<field name="libelle_court_sous_acte" />
+					<field name="name" />
+					<field name="bl_nomen_envig" />
+					<field name="qte_cg" />
+				</search>
+			</field>
+		</record>
+
+		<!-- Action du menu type de centre -->
+		<record model="ir.actions.act_window" id="action_mcisogem_sous_acte">
+			<field name="name">Sous Actes</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">mcisogem.sous.actes</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Cliquez ici pour créer un sous acte
+				</p>
+			</field>
+		</record>
+
+		<menuitem name="Sous Actes" id="menu_mcisogem_sous_acte"
+			action="action_mcisogem_sous_acte" sequence="1"
+			parent="menu_mcisogem_medical_acte" />
+
+
+		<!-- ===================== plage de centre form ============================= -->
+		<record id="view_mcisogem_tarif_convention_form" model="ir.ui.view">
+			<field name="name">mcisogem.tarif.convention.form</field>
+			<field name="model">mcisogem.tarif.convention</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Tarif Convention">
+					<field name="affichage" invisible="1" />
+					<sheet>
+						<div class="oe_title">
+							<h1>
+								<label string="Tarif Convention" />
+							</h1>
+						</div>
+						<group>
+							<field name="code_convention" />
+						</group>
+						<group>
+							<field name="code_famille" attrs="{'invisible': [('affichage','=',1)]}"
+								on_change="onchange_code_famille_tarif_convention(code_famille,context)" />
+						</group>
+						<group>
+							<field name="code_acte" attrs="{'invisible': [('affichage','=',0)]}" />
+						</group>
+						<group>
+							<field name="montant_brut_tarif" attrs="{'invisible': [('affichage','=',0)]}" />
+						</group>
+						<group>
+							<field name="code_tarif_convention_temp" attrs="{'invisible': [('affichage','=',1)]}">
+								<tree string="Choix des actes" editable="bottom">
+									<field name="choix" />
+									<field name="code_acte" />
+									<field name="montant_brut_tarif" />
+								</tree>
+							</field>
+						</group>
+						<group>
+							<group>
+								<field name="date_effet_tarif" />
+							</group>
+							<group>
+								<field name="date_resiliation_tarif" />
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- ===================== Liste plage de centre ============================= -->
+		<record id="mcisogem_tarif_convention_tree" model="ir.ui.view">
+			<field name="name">mcisogem.tarif.convention.tree</field>
+			<field name="model">mcisogem.tarif.convention</field>
+			<field name="arch" type="xml">
+				<tree string="Tarif Convention">
+					<field name="code_convention" />
+					<field name="code_acte" />
+					<field name="montant_brut_tarif" />
+					<field name="date_effet_tarif" />
+					<field name="date_resiliation_tarif" />
+				</tree>
+			</field>
+		</record>
+
+		<!-- ===================== filtre plage de centre ============================= -->
+		<record id="view_mcisogem_tarif_convention_filter" model="ir.ui.view">
+			<field name="name">mcisogem.tarif.convention.select</field>
+			<field name="model">mcisogem.tarif.convention</field>
+			<field name="arch" type="xml">
+				<search string="Rechercher un tarif convention">
+					<field name="code_convention" />
+					<field name="code_acte" />
+					<field name="montant_brut_tarif" />
+					<field name="date_effet_tarif" />
+					<field name="date_resiliation_tarif" />
+				</search>
+			</field>
+		</record>
+
+		<!-- Action du menu plage de centre -->
+		<record model="ir.actions.act_window" id="action_mcisogem_tarif_convention">
+			<field name="name">Tarif Convention</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">mcisogem.tarif.convention</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Cliquez ici pour créer un tarif convention
+				</p>
+			</field>
+		</record>
+
+		<menuitem name="Tarif Convention" id="menu_mcisogem_tarif_convention"
+			action="action_mcisogem_tarif_convention" sequence="1"
+			parent="menu_mcisogem_medical_etablissements_sanitaires" />
+
+
+		<record id="view_mcisogem_tarif_convention_centre_form" model="ir.ui.view">
+			<field name="name">mcisogem.tarif.convention.centre.form</field>
+			<field name="model">mcisogem.tarif.convention.centre</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Tarif Convention Centre">
+					<sheet>
+						<field name="affichage" invisible="1" />
+						<field name="affichage_convention" invisible="1" />
+						<field name="affichage_centre" invisible="1" />
+						<field name="affichage_famille" invisible="1" />
+						<field name="affichage_tab_centre" invisible="1" />
+						<field name="affichage_tab_acte" invisible="1" />
+						<div class="oe_title">
+							<h1>
+								<label string="Tarif Convention Centre" />
+							</h1>
+						</div>
+						<group>
+							<field name="actions" widget="radio"
+								attrs="{'invisible': [('affichage','=',3)]}" on_change="onchange_actions(actions,context)" />
+						</group>
+						<group>
+							<field name="code_convention"
+								attrs="{'invisible': [('affichage_convention','=',0)]}" />
+						</group>
+						<group>
+							<field name="code_tarif_convention_centre_temp"
+								attrs="{'invisible': [('affichage_tab_centre','=',0)]}">
+								<tree string="Choix des centres" editable="bottom">
+									<field name="choix" />
+									<field name="libelle_court_centre" />
+									<field name="code_centre" />
+								</tree>
+							</field>
+						</group>
+						<group>
+							<field name="code_centre" attrs="{'invisible': [('affichage_centre','=',0)]}" />
+						</group>
+						<group>
+							<field name="code_famille" attrs="{'invisible': [('affichage_famille','=',0)]}"
+								on_change="onchange_code_famille(code_famille, context)" />
+						</group>
+						<group>
+							<field name="code_tarif_convention_temp" attrs="{'invisible': [('affichage_tab_acte','=',0)]}">
+								<tree string="Choix des actes" editable="bottom">
+									<field name="choix" />
+									<field name="code_acte" />
+									<field name="montant_brut_tarif" />
+								</tree>
+							</field>
+						</group>
+						<group>
+							<field name="code_acte" attrs="{'invisible': [('affichage','!=',3)]}" />
+						</group>
+						<group>
+							<field name="montant_brut_tarif" attrs="{'invisible': [('affichage','!=',3)]}" />
+						</group>
+						<group>
+							<group>
+								<field name="date_effet_tarif" />
+							</group>
+							<group>
+								<field name="date_resiliation_tarif" />
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- ===================== Liste plage de centre ============================= -->
+		<record id="mcisogem_tarif_convention_centre_tree" model="ir.ui.view">
+			<field name="name">mcisogem.tarif.convention.centre.tree</field>
+			<field name="model">mcisogem.tarif.convention.centre</field>
+			<field name="arch" type="xml">
+				<tree string="Tarif Convention Centre">
+					<field name="code_convention" />
+					<field name="code_centre" />
+					<field name="code_acte" />
+					<field name="montant_brut_tarif" />
+					<field name="date_effet_tarif" />
+					<field name="date_resiliation_tarif" />
+				</tree>
+			</field>
+		</record>
+
+		<!-- ===================== filtre plage de centre ============================= -->
+		<record id="view_mcisogem_tarif_convention_centre_filter"
+			model="ir.ui.view">
+			<field name="name">mcisogem.tarif.convention.centre.select</field>
+			<field name="model">mcisogem.tarif.convention.centre</field>
+			<field name="arch" type="xml">
+				<search string="Rechercher un tarif convention centre">
+					<field name="code_convention" />
+					<field name="code_centre" />
+					<field name="code_acte" />
+					<field name="montant_brut_tarif" />
+					<field name="date_effet_tarif" />
+					<field name="date_resiliation_tarif" />
+				</search>
+			</field>
+		</record>
+
+		<!-- Action du menu plage de centre -->
+		<record model="ir.actions.act_window" id="action_mcisogem_tarif_convention_centre">
+			<field name="name">Tarif Convention Centre</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">mcisogem.tarif.convention.centre</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Cliquez ici pour créer un tarif convention centre
+				</p>
+			</field>
+		</record>
+
+		<menuitem name="Tarif Convention Centre" id="menu_mcisogem_tarif_convention_centre"
+			action="action_mcisogem_tarif_convention_centre" sequence="1"
+			parent="menu_mcisogem_medical_etablissements_sanitaires" />
+	</data>
+</openerp>

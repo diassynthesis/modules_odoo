@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>	
+				<!-- ===================== formulaire inscription ============================= -->	
+
+		<record id="view_inscription_form" model="ir.ui.view">
+			<field name="name">exercice.inscription.form</field>
+			<field name="model">exercice.inscription</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Inscription">
+					<header>
+						<field name="state" widget="statusbar" statusbar_visible="P,I,D"
+							statusbar_colors='{"progress":"blue"}' />
+
+						<button string="Préinscrire"
+							states="P,I,D" name="button_to_preinscrire" type="object" confirm="Enregistrer pour une preinscription ?" />
+
+						<button string="Inscrire"
+							states="P,I,D" name="button_to_inscrire" type="object" />
+
+						<button string="Diplome ?"
+							states="P,I,D" name="button_to_diplomer" type="object"/>
+					</header>
+					<sheet>
+						
+						<group col="2">
+							<group>
+								<field name="batiment_id"/>
+								<field name="classe_id" domain="[('batiment_id','=',batiment_id)]"/>
+								<field name="etudiant_id" on_change="onchange_etudiant(etudiant_id)"/>
+								<field name="nom" />
+								<field name="prenom" />
+							</group>
+						</group>
+		
+				</sheet>	
+			</form>
+			</field>
+		</record>
+
+
+		<!-- ===================== formulaire etudiant ============================= -->	
+
+		<record id="view_etudiant_form" model="ir.ui.view">
+			<field name="name">exercice.etudiant.form</field>
+			<field name="model">exercice.etudiant</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Classe">
+					<header>
+						<button name="button_modifier_sexe" string="Modifier le sexe"
+							 type="object" class="oe_highlight" />
+					</header>
+					<sheet>
+						<group col="2">
+							<group>
+								<field name="name" />
+								<field name="nom" />
+								<field name="prenom" />
+								<field name="sexe" widget="radio"/>
+								<field name="dnaiss" />
+								<field name="classe_id" />
+								<field name="note_id"/>
+								<!-- <field name="moyenne" /> -->
+							</group>
+						</group>
+		
+				</sheet>	
+			</form>
+			</field>
+		</record>
+
+		<!-- ===================== formulaire classe ============================= -->	
+		
+		<record id="view_classe_form" model="ir.ui.view">
+			<field name="name">exercice.classe.form</field>
+			<field name="model">exercice.classe</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Classe">
+					<header>
+						<button name="button_etudiant_classe" string="Voir les etudiants de cette classe"
+							 type="object" class="oe_highlight" />
+					</header>
+					<sheet>
+						<group col="2">
+							<group>
+								<field name="code" />
+								<field name="name" />
+								<field name="filiere_id" />
+								<field name="batiment_id" />
+							</group>
+						</group>
+		
+				</sheet>	
+			</form>
+			</field>
+		</record>
+
+
+		<!-- ===================== formulaire filiere ============================= -->
+		<record id="view_filiere_form" model="ir.ui.view">
+			<field name="name">exercice.filiere.form</field>
+			<field name="model">exercice.filiere</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="filiere">
+					<sheet>
+						<group col="2">
+							<group>
+								<field name="code" />
+								<field name="name" />
+							</group>
+						</group>
+					</sheet>	
+				</form>
+			</field>
+		</record>
+
+
+		<!-- ===================== formulaire Batiment ============================= -->
+		<record id="view_batiment_form" model="ir.ui.view">
+			<field name="name">exercice.batiment.form</field>
+			<field name="model">exercice.batiment</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="batiment">
+					<sheet>
+						<group col="2">
+							<group>
+								<field name="code" />
+								<field name="name" />
+							</group>
+						</group>
+					</sheet>	
+				</form>
+			</field>
+		</record>
+
+
+		<!-- ===================== formulaire attribution de notes ============================= -->
+		<record id="view_evaluer_form" model="ir.ui.view">
+			<field name="name">exercice.evaluer.form</field>
+			<field name="model">exercice.evaluer</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Evaluations">
+					<sheet>
+						<group col="2">
+							<group>
+								<field name="etudiant_id" />
+								<field name="code" />
+								<field name="matiere_id" />
+								<field name="note" />
+							</group>
+						</group>
+					</sheet>	
+				</form>
+			</field>
+		</record>
+
+		<!-- ===================== formulaire matiere ============================= -->
+		<record id="view_matiere_form" model="ir.ui.view">
+			<field name="name">exercice.matiere.form</field>
+			<field name="model">exercice.matiere</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Matieres">
+					<sheet>
+						<group col="2">
+							<group>
+								<field name="code_m"/>
+								<field name="name" />
+							</group>
+						</group>
+					</sheet>	
+				</form>
+			</field>
+		</record>
+
+	</data>	
+</openerp>

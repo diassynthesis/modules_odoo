@@ -1,0 +1,632 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <menuitem name="Administration" id="menu_mcisogem_config"
+			sequence="1" />
+			
+        <!-- ===================== Langues form ============================= -->
+        <record id="view_mcisogem_langue_form" model="ir.ui.view">
+            <field name="name">mcisogem.langue.form</field>
+            <field name="model">mcisogem.langue</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string=" Language">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <label string="Langue" />
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="code_langue" />
+                        </group>
+                        <group>
+                            <field name="name" />
+                        </group>
+                    </group>
+                </sheet>					
+				</form>
+            </field>
+        </record>
+        <!-- ===================== Liste langues ============================= -->
+        <record id="mcisogem_langue_tree" model="ir.ui.view">
+			<field name="name">mcisogem.langue.tree</field>
+			<field name="model">mcisogem.langue</field>
+			<field name="arch" type="xml">
+				<tree string="Languages">
+					<field name="code_langue" />
+					<field name="name" />
+				</tree>
+			</field>
+		</record>
+		<!-- ===================== filtre langue ============================= -->
+		<record id="view_mcisogem_langue_filter" model="ir.ui.view">
+            <field name="name">mcisogem.langue.select</field>
+            <field name="model">mcisogem.langue</field>
+            <field name="arch" type="xml">
+                <search string="Search Language">
+                    <field name="code_langue" />
+					<field name="name" />
+                </search>
+            </field>
+        </record>
+        <!-- Action du menu langue -->
+		<record model="ir.actions.act_window" id="action_mcisogem_langue">
+			<field name="name">Langues</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">mcisogem.langue</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Click to create language.
+				</p>
+			</field>
+		</record>
+        
+		<!-- Menu gauche Administration -->
+		<menuitem name="Administration" id="menu_mcisogem_config_sub"
+			parent="menu_mcisogem_config" />
+
+		<menuitem action="action_mcisogem_langue" parent="menu_mcisogem_config_sub"
+			id="mcisogem_langue" />
+			
+		<!-- ===================== Pays form ============================= -->
+        <record id="view_mcisogem_pays_form" model="ir.ui.view">
+            <field name="name">mcisogem.pays.form</field>
+            <field name="model">mcisogem.pays</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string=" Country">
+                <sheet>
+                    <group col="2">
+                        <group>
+                            <field name="code_pays" />
+                        </group>
+                        <group>
+                            <field name="name" />
+                        </group>
+                    </group>
+                </sheet>					
+				</form>
+            </field>
+        </record>
+        <!-- ===================== Liste pays ============================= -->
+        <record id="mcisogem_pays_tree" model="ir.ui.view">
+			<field name="name">mcisogem.pays.tree</field>
+			<field name="model">mcisogem.pays</field>
+			<field name="arch" type="xml">
+				<tree string="Pays">
+					<field name="code_pays" />
+					<field name="name" />
+				</tree>
+			</field>
+		</record>
+		<!-- ===================== filtre pays ============================= -->
+		<record id="view_mcisogem_pays_filter" model="ir.ui.view">
+            <field name="name">mcisogem.pays.select</field>
+            <field name="model">mcisogem.pays</field>
+            <field name="arch" type="xml">
+                <search string="Search pays">
+                    <field name="code_pays" />
+					<field name="name" />
+                </search>
+            </field>
+        </record>
+        <!-- Action du menu pays -->
+		<record model="ir.actions.act_window" id="action_mcisogem_pays">
+			<field name="name">Pays</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">mcisogem.pays</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Click to create pays.
+				</p>
+			</field>
+		</record>	
+		
+		<menuitem action="action_mcisogem_pays" parent="menu_mcisogem_config_sub"
+			id="mcisogem_pays" />
+		
+		<!-- ===================== zone form ============================= -->
+        <record id="view_mcisogem_zone_form" model="ir.ui.view">
+            <field name="name">mcisogem.zone.form</field>
+            <field name="model">mcisogem.zone</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <label string="Zone geographique" />
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="code_zone_geo" />
+                        </group>
+                        <group>
+                            <field name="name" />
+                        </group>
+                    </group>
+                </sheet>					
+				</form>
+            </field>
+        </record>
+        <!-- ===================== Liste zone ============================= -->
+        <record id="mcisogem_zone_tree" model="ir.ui.view">
+			<field name="name">mcisogem.zone.tree</field>
+			<field name="model">mcisogem.zone</field>
+			<field name="arch" type="xml">
+				<tree string="Zone">
+					<field name="code_zone_geo" />
+					<field name="name" />
+				</tree>
+			</field>
+		</record>
+		<!-- ===================== filtre zone ============================= -->
+		<record id="view_mcisogem_zone_filter" model="ir.ui.view">
+            <field name="name">mcisogem.zone.select</field>
+            <field name="model">mcisogem.zone</field>
+            <field name="arch" type="xml">
+                <search string="Search zone geo">
+                    <field name="code_zone_geo" />
+					<field name="name" />
+                </search>
+            </field>
+        </record>
+        <!-- Action du menu zone geo -->
+		<record model="ir.actions.act_window" id="action_mcisogem_zone">
+			<field name="name">Zone geographique</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">mcisogem.zone</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Click to create zone geographique.
+				</p>
+			</field>
+		</record>	
+		
+		<menuitem action="action_mcisogem_zone" parent="menu_mcisogem_config_sub"
+			id="mcisogem_zone" />
+			
+		<!-- ===================== Region form ============================= -->
+        <record id="view_mcisogem_region_form" model="ir.ui.view">
+            <field name="name">mcisogem.region.form</field>
+            <field name="model">mcisogem.region</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string=" Region">
+                <sheet>
+                    <div class="oe_title oe_left">
+                        <div class="oe_edit_only">
+                            <label for="code_region"/>
+                        </div>
+                        <h1>
+                            <field name="code_region" default_focus="1" placeholder="Code..."/>
+                        </h1>
+                        <field name="name" placeholder="Libelle de la region" />
+                    </div>
+                    <group col="1">
+                      <group col="2">
+                        <group>
+                            <label for="pays_id" string="Pays"/>
+                            <table>
+                                <tr>
+                                   <td width="10%"></td>
+                                </tr>
+                                <tr>
+                                    <td><field name="pays_id"/></td>
+                                </tr>
+                            </table>
+                        </group>
+                        <group>
+                            <label for="zone_geo_id" string="Zone geographique"/>
+                            <table>
+                                <tr>
+                                    <td width="10%"></td>
+                                </tr>
+                                <tr>
+                                    <td><field name="zone_geo_id"/></td>
+                                </tr>
+                            </table>
+                        </group>
+                        </group>
+                    </group>
+                </sheet>					
+				</form>
+            </field>
+        </record>
+        <!-- ===================== Liste region ============================= -->
+        <record id="mcisogem_region_tree" model="ir.ui.view">
+			<field name="name">mcisogem.region.tree</field>
+			<field name="model">mcisogem.region</field>
+			<field name="arch" type="xml">
+				<tree string="Region">
+					<field name="code_region" />
+                    <field name="name" />
+                    <field name="pays_id" />
+                    <field name="zone_geo_id" />
+				</tree>
+			</field>
+		</record>
+		<!-- ===================== filtre region ============================= -->
+		<record id="view_mcisogem_region_filter" model="ir.ui.view">
+            <field name="name">mcisogem.region.select</field>
+            <field name="model">mcisogem.region</field>
+            <field name="arch" type="xml">
+                <search string="Search region">
+                    <field name="code_region" />
+                    <field name="name" />
+                    <field name="pays_id" />
+                    <field name="zone_geo_id" />
+                </search>
+            </field>
+        </record>
+        <!-- Action du menu region -->
+		<record model="ir.actions.act_window" id="action_mcisogem_region">
+			<field name="name">Region</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">mcisogem.region</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Clickez ici pour creer une region.
+				</p>
+			</field>
+		</record>	
+		
+		<menuitem action="action_mcisogem_region" parent="menu_mcisogem_config_sub"
+			id="mcisogem_region" />
+			
+		<!-- ===================== Ville form ============================= -->
+        <record id="view_mcisogem_ville_form" model="ir.ui.view">
+            <field name="name">mcisogem.ville.form</field>
+            <field name="model">mcisogem.ville</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string=" Ville">
+                <sheet>
+                    <div class="oe_title oe_left">
+                        <div class="oe_edit_only">
+                            <label for="code_ville"/>
+                        </div>
+                        <h1>
+                            <field name="code_ville" default_focus="1" placeholder="Code..."/>
+                        </h1>
+                        <field name="name" placeholder="Libelle de la ville"/>
+                    </div>
+                    <group col="1">
+                      <group col="2">
+                        <group>
+                            <label for="region_id" string="Region"/>
+                            <table>
+                                <tr>
+                                   <td width="10%"></td>
+                                </tr>
+                                <tr>
+                                    <td><field name="region_id"/></td>
+                                </tr>
+                            </table>
+                        </group>
+                        <group>
+                            <label for="zone_geo_id" string="Zone geographique"/>
+                            <table>
+                                <tr>
+                                    <td width="10%"></td>
+                                    <td width="10%"></td>
+                                </tr>
+                                <tr>
+                                    <td><field name="zone_geo_id" /></td>
+                                </tr>
+                            </table>
+                        </group>
+                        </group>
+                        <group col="1">
+                        <group>
+                            <field name="code_postal" placeholder="Code postal..." />
+                        </group>
+                      </group>
+                    </group>
+                </sheet>					
+				</form>
+            </field>
+        </record>
+        <!-- ===================== Liste ville ============================= -->
+        <record id="mcisogem_ville_tree" model="ir.ui.view">
+			<field name="name">mcisogem.ville.tree</field>
+			<field name="model">mcisogem.ville</field>
+			<field name="arch" type="xml">
+				<tree string="ville">
+					<field name="code_ville" />
+                    <field name="name" />
+                    <field name="region_id" />
+                    <field name="zone_geo_id" />
+                    <field name="code_postal" />
+				</tree>
+			</field>
+		</record>
+		<!-- ===================== filtre ville ============================= -->
+		<record id="view_mcisogem_ville_filter" model="ir.ui.view">
+            <field name="name">mcisogem.ville.select</field>
+            <field name="model">mcisogem.ville</field>
+            <field name="arch" type="xml">
+                <search string="Search ville">
+                    <field name="code_ville" />
+					<field name="name" />
+					<field name="region_id" />
+                    <field name="zone_geo_id" />
+                </search>
+            </field>
+        </record>
+        <!-- Action du menu ville -->
+		<record model="ir.actions.act_window" id="action_mcisogem_ville">
+			<field name="name">Ville</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">mcisogem.ville</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Click to create ville.
+				</p>
+			</field>
+		</record>	
+		
+		<menuitem action="action_mcisogem_ville" parent="menu_mcisogem_config_sub"
+			id="mcisogem_ville" />
+			
+		<!-- ===================== Centre_gestion form ============================= -->
+        <record id="view_mcisogem_centre_gestion_form" model="ir.ui.view">
+            <field name="name">mcisogem.centre.gestion.form</field>
+            <field name="model">mcisogem.centre.gestion</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string=" Centre de gestion">
+                <sheet>
+                    <div class="oe_title oe_left">
+                        <div class="oe_edit_only">
+                            <label for="code_centre"/>
+                        </div>
+                        <h1>
+                            <field name="code_centre" default_focus="1" placeholder="Code..."/>
+                        </h1>
+                        <field name="name" placeholder="Libelle du centre de gestion" />
+                    </div>
+                    <group col="1">
+                      <group col="2">
+                        <group>
+                            <label for="devise_id" string="Devise"/>
+                            <table>
+                                <tr>
+                                   <td width="10%"></td>
+                                </tr>
+                                <tr>
+                                    <td><field name="devise_id" /></td>
+                                </tr>
+                            </table>
+                        </group>
+                        <group>
+                            <label for="langue_id" string="Langue"/>
+                            <table>
+                                <tr>
+                                    <td width="10%"></td>
+                                </tr>
+                                <tr>
+                                    <td><field name="langue_id" /></td>
+                                </tr>
+                            </table>
+                        </group>
+                        </group>
+                        <group col="2">
+                        <group>
+                            <label for="pays_id" string="Pays"/>
+                            <table>
+                                <tr>
+                                   <td width="10%"></td>
+                                </tr>
+                                <tr>
+                                    <td><field name="pays_id"/></td>
+                                </tr>
+                            </table>
+                        </group>
+                        <group>
+                            <label for="territoire_id" string="Territoire"/>
+                            <table>
+                                <tr>
+                                    <td width="10%"></td>
+                                </tr>
+                                <tr>
+                                    <td><field name="territoire_id"/></td>
+                                </tr>
+                            </table>
+                        </group>
+                        </group>
+                    </group>
+                    
+                </sheet>					
+				</form>
+            </field>
+        </record>
+        <!-- ===================== Liste centre de gestion ============================= -->
+        <record id="mcisogem_centre_gestion_tree" model="ir.ui.view">
+			<field name="name">mcisogem.centre.gestion.tree</field>
+			<field name="model">mcisogem.centre.gestion</field>
+			<field name="arch" type="xml">
+				<tree string="Centre de gestion">
+					<field name="code_centre" />
+                    <field name="name" />
+                    <field name="devise_id" />
+                    <field name="langue_id" />
+                    <field name="pays_id" />
+                    <field name="territoire_id"/>
+                    
+				</tree>
+			</field>
+		</record>
+		<!-- ===================== filtre centre gestion ============================= -->
+		<record id="view_mcisogem_centre_gestion_filter" model="ir.ui.view">
+            <field name="name">mcisogem.centre.gestion.select</field>
+            <field name="model">mcisogem.centre.gestion</field>
+            <field name="arch" type="xml">
+                <search string="Search centre gestion">
+                    <field name="code_centre" />
+                    <field name="name" />
+                    <field name="devise_id" />
+                    <field name="langue_id" />
+                    <field name="pays_id" />
+                    <field name="territoire_id"/>
+                </search>
+            </field>
+        </record>
+        <!-- Action du menu centre de gestion -->
+		<record model="ir.actions.act_window" id="action_mcisogem_centre_gestion">
+			<field name="name">Centre de gestion</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">mcisogem.centre.gestion</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Click to create centre de gestion.
+				</p>
+			</field>
+		</record>	
+		
+		<menuitem action="action_mcisogem_centre_gestion" parent="menu_mcisogem_config_sub"
+			id="mcisogem_centre_gestion" />
+		
+		<!-- ===================== Banque form ============================= -->
+        <record id="view_mcisogem_banque_form" model="ir.ui.view">
+            <field name="name">mcisogem.banque.form</field>
+            <field name="model">mcisogem.banque</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string=" Banque">
+                <sheet>
+                    <div class="oe_title oe_left">
+                        <div class="oe_edit_only">
+                            <label for="code_banque"/>
+                        </div>
+                        <h1>
+                            <field name="code_banque" default_focus="1" placeholder="Code..."/>
+                        </h1>
+                        <field name="name" placeholder="Libelle de la banque" />
+                    </div>
+                    <group col="1">
+                      <group col="2">
+                        <group string="Informations comptables ">
+                            <field name="gestionnaire_banque" placeholder="Nom..." />
+                            <field name="cpta_banque" placeholder="Swift code..." />
+                            <field name="date_cloture" />                                                    
+                        </group>
+                        <group string="Informations complementaires">
+                            <field name="telephone1" placeholder="Ex : +225 00 00 00 00" />
+                            <field name="telephone2" />
+                            <field name="fax" /> 
+                            <field name="boite_postale" />  
+                            <field name="adresse" />
+                        </group>
+                      </group>
+                    </group>
+                </sheet>					
+				</form>
+            </field>
+        </record>
+        <!-- ===================== Liste banque ============================= -->
+        <record id="mcisogem_banque_tree" model="ir.ui.view">
+			<field name="name">mcisogem.banque.tree</field>
+			<field name="model">mcisogem.banque</field>
+			<field name="arch" type="xml">
+				<tree string="Banque">
+					<field name="code_banque" />
+                    <field name="name" />
+                    <field name="gestionnaire_banque" />
+                    <field name="cpta_banque" />
+                    <field name="date_cloture" />
+                    <field name="telephone1" />
+                    <field name="telephone2" />
+                    <field name="fax" />
+                    <field name="boite_postale" />
+                    <field name="adresse" />
+				</tree>
+			</field>
+		</record>
+		<!-- ===================== filtre banque ============================= -->
+		<record id="view_mcisogem_banque_filter" model="ir.ui.view">
+            <field name="name">mcisogem.banque.select</field>
+            <field name="model">mcisogem.banque</field>
+            <field name="arch" type="xml">
+                <search string="Search banque">
+                    <field name="code_banque" />
+                    <field name="name" />
+                    <field name="gestionnaire_banque" />
+                    <field name="cpta_banque" />
+                    <field name="date_cloture" />
+                </search>
+            </field>
+        </record>
+        <!-- Action du menu banque -->
+		<record model="ir.actions.act_window" id="action_mcisogem_banque">
+			<field name="name">Banque</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">mcisogem.banque</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Click to create banque.
+				</p>
+			</field>
+		</record>	
+		
+		
+					
+				
+
+					
+					<!-- ===================== inherit user view ============================= -->
+		<record id="view_users_form_inherit" model="ir.ui.view">
+        <field name="name">res.users.form.inherit</field>
+        <field name="model">res.users</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <field name="company_id" position="after">
+                 <label for="poste" class="oe_edit_only" string="Poste"/>
+                 <h2><field name="poste" /></h2>
+                 <label for="code_gest_id" class="oe_edit_only" string="Centre de Gestion"/>
+                 <h2><field name="code_gest_id" /></h2>
+             </field>
+        </field>
+        </record>
+        
+        <!-- Action du menu user -->
+		<record model="ir.actions.act_window" id="action_mcisogem_user">
+			<field name="name">Utilisateurs</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">res.users</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Click to create utilisateur.
+				</p>
+			</field>
+		</record>	
+        
+        <!-- Menu gauche user -->
+		<menuitem name="Utilisateurs" id="menu_mcisogem_user"
+			parent="menu_mcisogem_config" />
+		
+		<menuitem action="action_mcisogem_user" parent="menu_mcisogem_user"
+			id="mcisogem_user" />
+        
+    </data>
+</openerp>

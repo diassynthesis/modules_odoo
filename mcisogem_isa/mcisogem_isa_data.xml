@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="0">
+
+		<!--Données langue -->
+		<record id="mcisogem_langue_0" model="mcisogem.langue">
+			<field name="code_langue">ANG</field>
+			<field name="name">ANGLAIS</field>
+			<field name="ph_lib_langue">AGLES</field>
+		</record>
+
+		<record id="mcisogem_langue_1" model="mcisogem.langue">
+			<field name="code_langue">FRF</field>
+			<field name="name">FRANCAIS</field>
+			<field name="ph_lib_langue">FRAKES</field>
+		</record>
+
+		<!--Données unité temps -->
+		<record id="mcisogem_unite_temps_0" model="mcisogem.unite.temps">
+			<field name="name">Annuel</field>
+			<field name="code_unite_temps">A</field>
+			<field name="nbre_jour">365</field>
+			<field name="code_langue">FRF</field>
+		</record>
+
+		<record id="mcisogem_unite_temps_1" model="mcisogem.unite.temps">
+			<field name="name">Biennal</field>
+			<field name="code_unite_temps">B</field>
+			<field name="nbre_jour">730</field>
+			<field name="code_langue">FRF</field>
+		</record>
+
+		<record id="mcisogem_unite_temps_2" model="mcisogem.unite.temps">
+			<field name="name">Hebdomadaire</field>
+			<field name="code_unite_temps">H</field>
+			<field name="nbre_jour">7</field>
+			<field name="code_langue">FRF</field>
+		</record>
+
+		<record id="mcisogem_unite_temps_3" model="mcisogem.unite.temps">
+			<field name="name">Bimestriel</field>
+			<field name="code_unite_temps">I</field>
+			<field name="nbre_jour">60</field>
+			<field name="code_langue">FRF</field>
+		</record>
+
+		<record id="mcisogem_unite_temps_4" model="mcisogem.unite.temps">
+			<field name="name">Journalier</field>
+			<field name="code_unite_temps">J</field>
+			<field name="nbre_jour">1</field>
+			<field name="code_langue">FRF</field>
+		</record>
+
+		<record id="mcisogem_unite_temps_5" model="mcisogem.unite.temps">
+			<field name="name">Mensuel</field>
+			<field name="code_unite_temps">M</field>
+			<field name="nbre_jour">30</field>
+			<field name="code_langue">FRF</field>
+		</record>
+
+		<record id="mcisogem_unite_temps_6" model="mcisogem.unite.temps">
+			<field name="name">Semestriel</field>
+			<field name="code_unite_temps">S</field>
+			<field name="nbre_jour">91</field>
+			<field name="code_langue">FRF</field>
+		</record>
+
+		<!--Données numero -->
+		<record id="mcisogem_numero_0" model="mcisogem.numero">
+			<field name="name">0</field>
+			<field name="num_remb">0</field>
+			<field name="numero">0</field>
+			<field name="num_benef">0</field>
+			<field name="num_police">0</field>
+			<field name="num_prestexec">0</field>
+			<field name="num_quittance">0</field>
+			<field name="num_centre">0</field>
+			<field name="num_regl_quittance">0</field>
+			<field name="num_regt">0</field>
+			<field name="num_regt_garant">0</field>
+			<field name="num_remb_garant">0</field>
+			<field name="num_court_souscr">0</field>
+			<field name="num_quittancier">0</field>
+		</record>
+
+		<!--Données type garant -->
+		<record id="mcisogem_type_garant_0" model="mcisogem.type.garant">
+			<field name="code_type_garant">1</field>
+			<field name="name">COMPAGNIE</field>
+			<field name="code_langue">FRF</field>
+		</record>
+
+		<record id="mcisogem_type_garant_1" model="mcisogem.type.garant">
+			<field name="code_type_garant">2</field>
+			<field name="name">AUTO ASSURANCE</field>
+			<field name="code_langue">FRF</field>
+		</record>
+
+		<record id="mcisogem_type_garant_2" model="mcisogem.type.garant">
+			<field name="code_type_garant">3</field>
+			<field name="name">MUTUELLE</field>
+			<field name="code_langue">FRF</field>
+		</record>
+
+		<record id="mcisogem_type_garant_3" model="mcisogem.type.garant">
+			<field name="code_type_garant">4</field>
+			<field name="name">AUTRE</field>
+			<field name="code_langue">FRF</field>
+		</record>
+
+
+		<!--Données tranche age -->
+		<record id="mcisogem_tranche_age_0" model="mcisogem.tranche.age">
+			<field name="code_tranche">1</field>
+			<field name="debut_tranche">999</field>
+			<field name="fin_tranche">9999</field>
+			<field name="name">999-9999</field>
+		</record>
+
+		<record id="mcisogem_tranche_age_1" model="mcisogem.tranche.age">
+			<field name="code_tranche">2</field>
+			<field name="debut_tranche">0</field>
+			<field name="fin_tranche">20</field>
+			<field name="name">0-20</field>
+		</record>
+
+		<record id="mcisogem_tranche_age_2" model="mcisogem.tranche.age">
+			<field name="code_tranche">3</field>
+			<field name="debut_tranche">21</field>
+			<field name="fin_tranche">24</field>
+			<field name="name">21-24</field>
+
+		</record>
+
+		<record id="mcisogem_tranche_age_3" model="mcisogem.tranche.age">
+			<field name="code_tranche">4</field>
+			<field name="debut_tranche">25</field>
+			<field name="fin_tranche">29</field>
+			<field name="name">25-29</field>
+
+		</record>
+
+		<record id="mcisogem_tranche_age_4" model="mcisogem.tranche.age">
+			<field name="code_tranche">5</field>
+			<field name="debut_tranche">30</field>
+			<field name="fin_tranche">34</field>
+			<field name="name">30-34</field>
+
+		</record>
+
+		<record id="mcisogem_tranche_age_5" model="mcisogem.tranche.age">
+			<field name="code_tranche">6</field>
+			<field name="debut_tranche">35</field>
+			<field name="fin_tranche">99</field>
+			<field name="name">35-99</field>
+
+		</record>
+
+		<!--Données statut benef -->
+		<record id="mcisogem_stat_benef_0" model="mcisogem.stat.benef">
+			<field name="cod_statut_benef">A</field>
+			<field name="name">ASSURE PRINCIPAL</field>
+			<field name="lbc_fam_statut">A</field>
+		</record>
+
+		<record id="mcisogem_stat_benef_1" model="mcisogem.stat.benef">
+			<field name="cod_statut_benef">C</field>
+			<field name="name">CONJOINT</field>
+			<field name="lbc_fam_statut">C</field>
+		</record>
+
+		<record id="mcisogem_stat_benef_2" model="mcisogem.stat.benef">
+			<field name="cod_statut_benef">E</field>
+			<field name="name">ENFANT</field>
+			<field name="lbc_fam_statut">E</field>
+		</record>
+
+	</data>
+</openerp>

@@ -1,0 +1,31 @@
+-
+  je crée un batiment nommé M
+-
+  !record {model: exercice.batiment, id: exercice_batiment_0}:
+    code: 6
+    name: M
+
+-
+	je crée une  filiere  
+-
+
+  !record{model:exercice.filiere,id:exercice_filiere_0}:
+ 	code:All
+ 	name:Allemand
+
+-
+	je crée une classe dans la filiere allemand et sur le batiment M 
+-
+  !record{model:exercie.classe,id:exercice_classe_0}:
+  	code:AllL1
+  	name:Allemand L1
+  	filiere_id:exercice_filiere_0
+  	batiment_id:exercice_batiment_0
+
+-
+	je crée une autre classe utilisant les paramètres précédents
+-
+  	!python {model: exercice.classe}: |
+        result = self.create(cr, uid, [ref('exercice_classe_0')], {})
+        assert result, 'La classe n a pu être crée'
+

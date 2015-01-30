@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+		<menuitem name="Tables de references" id="menu_mcisogem_ref"
+			sequence="2" />
+			
+		<!-- ===================== Devise form ============================= -->
+        <record id="view_mcisogem_devise_form" model="ir.ui.view">
+            <field name="name">mcisogem.devise.form</field>
+            <field name="model">mcisogem.devise</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string=" Devise">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="code_devise" />
+                        </group>
+                        <group>
+                            <field name="name" />
+                        </group>
+                    </group>
+                </sheet>					
+				</form>
+            </field>
+        </record>
+        <!-- ===================== Liste devise ============================= -->
+        <record id="mcisogem_devise_tree" model="ir.ui.view">
+			<field name="name">mcisogem.devise.tree</field>
+			<field name="model">mcisogem.devise</field>
+			<field name="arch" type="xml">
+				<tree string="Devise">
+					<field name="code_devise" />
+					<field name="name" />
+				</tree>
+			</field>
+		</record>
+		<!-- ===================== filtre devise ============================= -->
+		<record id="view_mcisogem_devise_filter" model="ir.ui.view">
+            <field name="name">mcisogem.devise.select</field>
+            <field name="model">mcisogem.devise</field>
+            <field name="arch" type="xml">
+                <search string="Search devise">
+                    <field name="code_devise" />
+					<field name="name" />
+                </search>
+            </field>
+        </record>
+        <!-- Action du menu devise -->
+		<record model="ir.actions.act_window" id="action_mcisogem_devise">
+			<field name="name">Devise</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">mcisogem.devise</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Click to create devise.
+				</p>
+			</field>
+		</record>	
+		
+		<menuitem name="Tables de references" id="menu_mcisogem_ref_subb"
+			parent="menu_mcisogem_ref" />
+		
+		<menuitem action="action_mcisogem_devise" parent="menu_mcisogem_ref_subb"
+			id="mcisogem_devise" />
+		
+		
+		<!-- ===================== Type garant form ============================= -->
+        <record id="view_mcisogem_type_garant_form" model="ir.ui.view">
+            <field name="name">mcisogem.type.garant.form</field>
+            <field name="model">mcisogem.type.garant</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string=" Language">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="code_type_garant" />
+                        </group>
+                        <group>
+                            <field name="name" />
+                        </group>
+                    </group>
+                </sheet>					
+				</form>
+            </field>
+        </record>
+        <!-- ===================== Liste type garant ============================= -->
+        <record id="mcisogem_type_garant_tree" model="ir.ui.view">
+			<field name="name">mcisogem.type.garant.tree</field>
+			<field name="model">mcisogem.type.garant</field>
+			<field name="arch" type="xml">
+				<tree string="Type garant">
+					<field name="code_type_garant" />
+					<field name="name" />
+				</tree>
+			</field>
+		</record>
+		<!-- ===================== filtre type garant ============================= -->
+		<record id="view_mcisogem_type_garant_filter" model="ir.ui.view">
+            <field name="name">mcisogem.type.garant.select</field>
+            <field name="model">mcisogem.type.garant</field>
+            <field name="arch" type="xml">
+                <search string="Search type garant">
+                    <field name="code_type_garant" />
+					<field name="name" />
+                </search>
+            </field>
+        </record>
+        <!-- Action du menu type_garant -->
+		<record model="ir.actions.act_window" id="action_mcisogem_type_garant">
+			<field name="name">Type garant</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">mcisogem.type.garant</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Clickez ici pour creer un type de garant.
+				</p>
+			</field>
+		</record>	
+		
+		<menuitem action="action_mcisogem_type_garant" parent="menu_mcisogem_ref_subb"
+			id="mcisogem_type_garant" />
+			
+		<!-- ===================== Type contrat form ============================= -->
+        <record id="view_mcisogem_type_contrat_form" model="ir.ui.view">
+            <field name="name">mcisogem.type.contrat.form</field>
+            <field name="model">mcisogem.type.contrat</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string=" Type de Contrat">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <label string="Type de contrat" />
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="code_type_contrat" />
+                        </group>
+                        <group>
+                            <field name="name" />
+                        </group>
+                    </group>
+                </sheet>					
+				</form>
+            </field>
+        </record>
+        <!-- ===================== Liste type contrat ============================= -->
+        <record id="mcisogem_type_contrat_tree" model="ir.ui.view">
+			<field name="name">mcisogem.type.contrat.tree</field>
+			<field name="model">mcisogem.type.contrat</field>
+			<field name="arch" type="xml">
+				<tree string="Type contrat">
+					<field name="code_type_contrat" />
+					<field name="name" />
+				</tree>
+			</field>
+		</record>
+		<!-- ===================== filtre type contrat ============================= -->
+		<record id="view_mcisogem_type_contrat_filter" model="ir.ui.view">
+            <field name="name">mcisogem.type.contrat.select</field>
+            <field name="model">mcisogem.type.contrat</field>
+            <field name="arch" type="xml">
+                <search string="Search type contrat">
+                    <field name="code_type_contrat" />
+                    <field name="name" />
+                </search>
+            </field>
+        </record>
+        <!-- Action du menu type_contrat -->
+		<record model="ir.actions.act_window" id="action_mcisogem_type_contrat">
+			<field name="name">Type de contrat</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">mcisogem.type.contrat</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Clickez ici pour creer type de contrat.
+				</p>
+			</field>
+		</record>	
+		
+		<menuitem action="action_mcisogem_type_contrat" parent="menu_mcisogem_ref_subb"
+			id="mcisogem_type_contrat" />
+			
+		<!-- ===================== Mode de reconduction form ============================= -->
+        <record id="view_mcisogem_mod_recond_form" model="ir.ui.view">
+            <field name="name">mcisogem.mod.recond.form</field>
+            <field name="model">mcisogem.mod.recond</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Mode de reconduction">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <label string="Mode de reconduction" />
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="code_mod_recond" />
+                        </group>
+                        <group>
+                            <field name="name" />
+                        </group>
+                    </group>
+                </sheet>					
+				</form>
+            </field>
+        </record>
+        <!-- ===================== Liste Mode de reconduction ============================= -->
+        <record id="mcisogem_mod_recond_tree" model="ir.ui.view">
+			<field name="name">mcisogem.mod.recond.tree</field>
+			<field name="model">mcisogem.mod.recond</field>
+			<field name="arch" type="xml">
+				<tree string="Mode de reconduction">
+					<field name="code_mod_recond" />
+					<field name="name" />
+				</tree>
+			</field>
+		</record>
+		<!-- ===================== filtre Mode de reconduction ============================= -->
+		<record id="view_mcisogem_mod_recond_filter" model="ir.ui.view">
+            <field name="name">mcisogem.mod.recond.select</field>
+            <field name="model">mcisogem.mod.recond</field>
+            <field name="arch" type="xml">
+                <search string="Search mode de reconduction">
+                    <field name="code_mod_recond" />
+                    <field name="name" />
+                </search>
+            </field>
+        </record>
+        <!-- Action du menu mod recond -->
+		<record model="ir.actions.act_window" id="action_mcisogem_mod_recond">
+			<field name="name">Mode de reconduction</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">mcisogem.mod.recond</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Clickez ici pour creer mode de reconduction.
+				</p>
+			</field>
+		</record>	
+		
+		<menuitem action="action_mcisogem_mod_recond" parent="menu_mcisogem_ref_subb"
+			id="mcisogem_mod_recond" />
+			
+		<!-- ===================== Regime form ============================= -->
+        <record id="view_mcisogem_regime_form" model="ir.ui.view">
+            <field name="name">mcisogem.regime.form</field>
+            <field name="model">mcisogem.regime</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string=" Type de remboursement de contrat">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <label string="Type de remboursement de contrat" />
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="code_regime" />
+                        </group>
+                        <group>
+                            <field name="name" />
+                        </group>
+                    </group>
+                </sheet>					
+				</form>
+            </field>
+        </record>
+        <!-- ===================== Liste Regime ============================= -->
+        <record id="mcisogem_regime_tree" model="ir.ui.view">
+			<field name="name">mcisogem.regime.tree</field>
+			<field name="model">mcisogem.regime</field>
+			<field name="arch" type="xml">
+				<tree string="Type de remboursement de contrat">
+					<field name="code_regime" />
+					<field name="name" />
+				</tree>
+			</field>
+		</record>
+		<!-- ===================== filtre Regime ============================= -->
+		<record id="view_mcisogem_regime_filter" model="ir.ui.view">
+            <field name="name">mcisogem.regime.select</field>
+            <field name="model">mcisogem.regime</field>
+            <field name="arch" type="xml">
+                <search string="Search yype de remboursement">
+                    <field name="code_regime" />
+                    <field name="name" />
+                </search>
+            </field>
+        </record>
+        <!-- Action du menu mod recond -->
+		<record model="ir.actions.act_window" id="action_mcisogem_regime">
+			<field name="name">Type de remboursement</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">mcisogem.regime</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Clickez ici pour creer type de remboursement.
+				</p>
+			</field>
+		</record>	
+		
+		<menuitem action="action_mcisogem_regime" parent="menu_mcisogem_ref_subb"
+			id="mcisogem_regime" />
+			
+		<!-- ===================== concurent form ============================= -->
+        <record id="view_mcisogem_concurent_form" model="ir.ui.view">
+            <field name="name">mcisogem.concurent.form</field>
+            <field name="model">mcisogem.concurent</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Concurent">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="code_concur" />
+                        </group>
+                        <group>
+                            <field name="name" />
+                        </group>
+                    </group>
+                </sheet>					
+				</form>
+            </field>
+        </record>
+        <!-- ===================== Liste concurent ============================= -->
+        <record id="mcisogem_concurent_tree" model="ir.ui.view">
+			<field name="name">mcisogem.concurent.tree</field>
+			<field name="model">mcisogem.concurent</field>
+			<field name="arch" type="xml">
+				<tree string="Concurent">
+					<field name="code_concur" />
+					<field name="name" />
+				</tree>
+			</field>
+		</record>
+		<!-- ===================== filtre concurent ============================= -->
+		<record id="view_mcisogem_concurent_filter" model="ir.ui.view">
+            <field name="name">mcisogem.concurent.select</field>
+            <field name="model">mcisogem.concurent</field>
+            <field name="arch" type="xml">
+                <search string="Search concurent">
+                    <field name="code_concur" />
+                    <field name="name" />
+                </search>
+            </field>
+        </record>
+        <!-- Action du menu mod recond -->
+		<record model="ir.actions.act_window" id="action_mcisogem_concurent">
+			<field name="name">Concurent</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">mcisogem.concurent</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Clickez ici pour creer un concurent.
+				</p>
+			</field>
+		</record>	
+		
+		<menuitem action="action_mcisogem_concurent" parent="menu_mcisogem_ref_subb"
+			id="mcisogem_concurent" />
+			
+		<!-- ===================== Unite temps form ============================= -->
+        <record id="view_mcisogem_unite_temps_form" model="ir.ui.view">
+            <field name="name">mcisogem.unite.temps.form</field>
+            <field name="model">mcisogem.unite.temps</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Unite temps">
+                <sheet>
+                    <div class="oe_title oe_left">
+                        <div class="oe_edit_only">
+                            <label for="name"/>
+                        </div>
+                        <h1>
+                            <field name="code_unite_temps" default_focus="1" placeholder="Code..."/>
+                        </h1>
+                    </div>
+                    <group col="2">
+                        <group>
+                            <field name="name" />
+                        </group>
+                        <group>
+                            <field name="nbre_jour" />
+                        </group>
+                    </group>
+                </sheet>					
+				</form>
+            </field>
+        </record>
+        <!-- ===================== Liste Unite temps ============================= -->
+        <record id="mcisogem_unite_temps_tree" model="ir.ui.view">
+			<field name="name">mcisogem.unite.temps.tree</field>
+			<field name="model">mcisogem.unite.temps</field>
+			<field name="arch" type="xml">
+				<tree string="Unite temps">
+					<field name="code_unite_temps" />
+					<field name="name" />
+					<field name="nbre_jour" />
+				</tree>
+			</field>
+		</record>
+		<!-- ===================== filtre Unite temps ============================= -->
+		<record id="view_mcisogem_unite_temps_filter" model="ir.ui.view">
+            <field name="name">mcisogem.unite.temps.select</field>
+            <field name="model">mcisogem.unite.temps</field>
+            <field name="arch" type="xml">
+                <search string="Search Unite temps">
+                    <field name="code_unite_temps" />
+					<field name="name" />
+					<field name="nbre_jour" />
+                </search>
+            </field>
+        </record>
+        <!-- Action du menu mod recond -->
+		<record model="ir.actions.act_window" id="action_mcisogem_unite_temps">
+			<field name="name">Unite temps</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">mcisogem.unite.temps</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Clickez ici pour creer une unite de temps.
+				</p>
+			</field>
+		</record>	
+		
+		<menuitem action="action_mcisogem_unite_temps" parent="menu_mcisogem_ref_subb"
+			id="mcisogem_unite_temps" />
+        
+    </data>
+</openerp>

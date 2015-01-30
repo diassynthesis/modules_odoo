@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>	
+
+		<!-- ===================== filtre etudiant============================= -->
+		<record id="view_exercice_etudiant_filter" model="ir.ui.view">
+			<field name="name">exercice.etudiant.filter</field>
+			<field name="model">exercice.etudiant</field>
+			<field name="arch" type="xml">
+				<search string="Search etudiant">
+					<field name="name" />
+					<field name="nom" />
+					<field name="prenom" />
+				</search>
+			</field>
+		</record>
+
+		<!-- ===================== filtre etudiant dans inscription============================= -->
+		<record id="view_exercice_inscription_filter" model="ir.ui.view">
+			<field name="name">exercice.inscription.filter</field>
+			<field name="model">exercice.inscription</field>
+			<field name="arch" type="xml">
+				<search>
+					<field name="nom" />
+					<field name="prenom" />
+					<field name="classe_id" />
+				</search>
+			</field>
+		</record>
+
+
+		<!-- ===================== liste inscription ============================= -->	
+		<record id="view_inscription_tree" model="ir.ui.view">
+			<field name="name">exercice.inscription.tree</field>
+			<field name="model">exercice.inscription</field>
+			<field name="arch" type="xml">
+
+				<tree string="Liste des etudiants">
+					<field name="batiment_id"/>
+					<field name="classe_id" />
+					<field name="etudiant_id" />
+					<field name="nom" />
+					<field name="prenom" />
+					<field name="date_ins" />
+					<field name="state" string="Etat"/>
+				</tree>	
+			</field>
+		</record>
+
+
+		<!-- ===================== kanban inscription ============================= -->	
+		<record id="view_inscription_kanban" model="ir.ui.view">
+			<field name="name">exercice.inscription.kanban</field>
+			<field name="model">exercice.inscription</field>
+			<field name="arch" type="xml">
+				<kanban default_group_by="state">
+					<templates>
+						<t t-name="kanban-box">
+					<field name="batiment_id"/>
+					<field name="classe_id" />
+					<field name="etudiant_id" />
+					<field name="nom" />
+					<field name="prenom" />
+                            <div >
+                                <div class="oe_dropdown_toggle oe_dropdown_kanban" groups="base.group_user">
+                                    <span class="oe_e">í</span>
+                                    <ul class="oe_dropdown_menu">
+                                        <t t-if="widget.view.is_action_enabled('edit')"><li><a type="edit">Modifier</a></li></t>
+                                        <t t-if="widget.view.is_action_enabled('delete')"><li><a type="delete">Supprimer</a></li></t>
+                                        <li><ul class="oe_kanban_colorpicker" data-field="color"/></li>
+                                    </ul>
+                                </div>
+                                <div class="oe_kanban_content">
+                                    <h4 class="text-center"><strong><field name="etudiant_id"/></strong></h4>
+                                </div>
+                            </div>
+                        </t>
+					</templates>
+				</kanban>
+			</field>
+		</record>
+
+
+		<!-- ===================== liste notes ============================= -->	
+		<record id="view_evaluer_tree" model="ir.ui.view">
+			<field name="name">exercice.evaluer.tree</field>
+			<field name="model">exercice.evaluer</field>
+			<field name="arch" type="xml">
+				<tree string="Liste des Notes">
+					<field name="code" />
+					<field name="matiere_id" />
+					<field name="note" />
+				</tree>	
+			</field>
+		</record>
+
+		<!-- ===================== liste matiere ============================= -->	
+		<record id="view_matiere_tree" model="ir.ui.view">
+			<field name="name">exercice.matiere.tree</field>
+			<field name="model">exercice.matiere</field>
+			<field name="arch" type="xml">
+				<tree string="Liste des matieres">
+					<field name="code_m"/>
+					<field name="name" />
+				</tree>	
+			</field>
+		</record>
+
+		<!-- ===================== liste batiment ============================= -->	
+		
+		<record id="view_batiment_tree" model="ir.ui.view">
+			<field name="name">exercice.batiment.tree</field>
+			<field name="model">exercice.batiment</field>
+			<field name="arch" type="xml">
+				<tree string="exercice">
+					<field name="code" />
+					<field name="name" />
+				</tree>	
+			</field>
+		</record>
+		
+		<!-- ===================== liste de tous les etudiants ============================= -->	
+		
+		<record id="view_etudiant_tree" model="ir.ui.view">
+			<field name="name">exercice.etudiant.tree</field>
+			<field name="model">exercice.etudiant</field>
+			<field name="arch" type="xml">
+				<tree string="Etudiant">
+					<field name="name" />
+					<field name="nom" />
+					<field name="prenom" />
+					<field name="sexe" />
+					<field name="dnaiss" />
+					<field name="classe_id" />
+					<field name="note_id"/>
+					<field name="moyenne" />
+				</tree>	
+			</field>
+		</record>
+
+		<!-- ===================== liste etudiants ============================= -->	
+		
+		<record id="view_etudiant_masculin_tree" model="ir.ui.view">
+			<field name="name">exercice.etudiant.masculin.tree</field>
+			<field name="model">exercice.etudiant.masculin</field>
+			<field name="arch" type="xml">
+				<tree string="Etudiants masculins">
+					<field name="name" />
+					<field name="nom" />
+					<field name="prenom" />
+					<field name="sexe" />
+					<field name="dnaiss" />
+					<field name="classe_id" />
+				</tree>	
+			</field>
+		</record>
+
+		<!-- ===================== Kanban inscription============================= -->
+		<record id="view_etudiant_kanban" model="ir.ui.view">
+			<field name="name">exercice.etudiant.kanban</field>
+			<field name="model">exercice.etudiant</field>
+			<field name="arch" type="xml">
+				<kanban>
+					<templates>
+						<t t-name="kanban-box">
+							<h1>
+								<field name="nom" />
+								<field name="prenom" />
+							</h1>	
+							<div t-attf-class="oe_kanban_content">
+								<ul>
+									<li>Classe : <field name="classe_id" /></li>
+									<li>Sexe : <field name="sexe" /></li>
+									<li>Date de Naissance : <field name="dnaiss" /></li>
+								</ul>	
+							</div>
+						</t>
+					</templates>
+				</kanban>
+			</field>
+		</record>
+
+		<!-- ===================== liste etudiantes ============================= -->	
+		
+		<record id="view_etudiant_feminin_tree" model="ir.ui.view">
+			<field name="name">exercice.etudiant.feminin.tree</field>
+			<field name="model">exercice.etudiant.feminin</field>
+			<field name="arch" type="xml">
+				<tree string="Etudiants feminins">
+					<field name="name" />
+					<field name="nom" />
+					<field name="prenom" />
+					<field name="sexe" />
+					<field name="dnaiss" />
+					<field name="classe_id" />
+				</tree>	
+			</field>
+		</record>
+		
+
+		<!-- ===================== liste filiere ============================= -->	
+		
+		<record id="view_filiere_tree" model="ir.ui.view">
+			<field name="name">exercice.filiere.tree</field>
+			<field name="model">exercice.filiere</field>
+			<field name="arch" type="xml">
+				<tree string="exercice">
+					<field name="code" />
+					<field name="name" />
+				</tree>	
+			</field>
+		</record>
+
+		<!-- ===================== liste classe ============================= -->	
+		
+		<record id="view_classe_tree" model="ir.ui.view">
+			<field name="name">exercice.classe.tree</field>
+			<field name="model">exercice.classe</field>
+			<field name="arch" type="xml">
+				<tree string="exercice">
+					<field name="code" />
+					<field name="name" />
+					<field name="filiere_id" />
+					<field name="batiment_id" />
+				</tree>	
+			</field>
+		</record>
+	</data>	
+	</openerp>

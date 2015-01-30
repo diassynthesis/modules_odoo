@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="0">
+
+		<!--Données batiment -->
+		<record id="exercice_batiment_0" model="exercice.batiment">
+			<field name="code">6</field>
+			<field name="name">C</field>
+		</record>
+
+		<record id="exercice_batiment_1" model="exercice.batiment">
+			<field name="code">7</field>
+			<field name="name">D</field>
+		</record>
+
+		<record id="exercice_batiment_2" model="exercice.batiment">
+			<field name="code">1</field>
+			<field name="name">E</field>
+		</record>
+
+		<record id="exercice_batiment_3" model="exercice.batiment">
+			<field name="code">1</field>
+			<field name="name">A</field>
+		</record>
+
+		<record id="exercice_batiment_4" model="exercice.batiment">
+			<field name="code">2</field>
+			<field name="name">B</field>
+		</record>
+
+
+		<!--Données filiere -->
+		<record id="exercice_filiere_0" model="exercice.filiere">
+			<field name="code">Cp</field>
+			<field name="name">Comptabilité</field>
+		</record>
+
+		<record id="exercice_filiere_1" model="exercice.filiere">
+			<field name="code">Dr</field>
+			<field name="name">Droit</field>
+		</record>
+
+		<record id="exercice_filiere_2" model="exercice.filiere">
+			<field name="code">Eco</field>
+			<field name="name">Economie</field>
+		</record>
+
+		<record id="exercice_filiere_3" model="exercice.filiere">
+			<field name="code">Info</field>
+			<field name="name">Informatique</field>
+		</record>
+
+
+		<!--Données classe -->
+		<record id="exercice_classe_0" model="exercice.classe">
+			<field name="code">InfL1</field>
+			<field name="name">Informatique L1</field>
+			<field name="filiere_id" ref="exercice_filiere_3"></field>
+			<field name="batiment_id" ref="exercice_batiment_0"></field>
+		</record>
+
+
+		<record id="exercice_classe_1" model="exercice.classe">
+			<field name="code">InfL2</field>
+			<field name="name">Informatique L2</field>
+			<field name="filiere_id" ref="exercice_filiere_3"></field>
+			<field name="batiment_id" ref="exercice_batiment_0"></field>
+		</record>
+
+
+		<!--Données etudiant -->
+		<record id="exercice_etudiant_0" model="exercice.etudiant">
+			<field name="name">KA</field>
+			<field name="nom">Koné</field>
+			<field name="prenom">Aziz Rodrigue</field>
+			<field name="sexe">M</field>
+			<field name="classe_id" ref="exercice_classe_0"></field>
+		</record>
+
+		<record id="exercice_etudiant_1" model="exercice.etudiant">
+			<field name="name">KM</field>
+			<field name="nom">Koné</field>
+			<field name="prenom">Marlene</field>
+			<field name="sexe">F</field>
+			<field name="classe_id" ref="exercice_classe_1"></field>
+		</record>
+
+
+
+
+
+		<!--Données matiere -->
+		<record id="exercice_matiere_0" model="exercice.matiere">
+			<field name="code_m">Cp</field>
+			<field name="name">Comptabilité</field>
+		</record>
+
+		<record id="exercice_matiere_1" model="exercice.matiere">
+			<field name="code_m">Eco</field>
+			<field name="name">Economie</field>
+		</record>
+
+		<record id="exercice_matiere_2" model="exercice.matiere">
+			<field name="code_m">EcoQt</field>
+			<field name="name">Economie Quantitative</field>
+		</record>
+
+		<record id="exercice_matiere_3" model="exercice.matiere">
+			<field name="code_m">Mathfin</field>
+			<field name="name">Mathématiques Financière</field>
+		</record>
+
+		<record id="exercice_matiere_4" model="exercice.matiere">
+			<field name="code_m">Ang</field>
+			<field name="name">Anglais</field>
+		</record>
+
+		<record id="exercice_matiere_5" model="exercice.matiere">
+			<field name="code_m">Esp</field>
+			<field name="name">Espagnol</field>
+		</record>
+
+		<record id="exercice_matiere_6" model="exercice.matiere">
+			<field name="code_m">Fr</field>
+			<field name="name">Français</field>
+		</record>
+</data>
+</openerp>
